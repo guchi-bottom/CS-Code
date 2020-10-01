@@ -182,6 +182,7 @@
             this.group_status.TabIndex = 9;
             this.group_status.TabStop = false;
             this.group_status.Text = "ステータス";
+            this.group_status.Enter += new System.EventHandler(this.group_status_Enter);
             // 
             // group_log
             // 

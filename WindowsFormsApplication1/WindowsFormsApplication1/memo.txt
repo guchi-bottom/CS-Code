@@ -1,0 +1,5 @@
+﻿各コンポーネント名
+
+企業名 | name_company
+利用サービス名 | name_service
+活動状況 | group_status (Log_doing, log_unofficial, log_decline)
