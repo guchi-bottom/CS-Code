@@ -32,9 +32,12 @@ namespace WindowsFormsApplication1
             {
                 MessageBox.Show(ex.ToString(), "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            listBox1.SelectedIndex = 0;
+            Console.WriteLine("Length:" + saved_data.Length);
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void data_saving()
         {
             try
             {
@@ -66,26 +69,81 @@ namespace WindowsFormsApplication1
 
             //活動状況取得
             int i_status = 0;
-            foreach (RadioButton log in group_log.Controls) //エラー
-            /*型 'System.InvalidCastException' のハンドルされていない例外が Graduations.exe で発生しました
-              追加情報:型 'System.Windows.Forms.Button' のオブジェクトを型 'System.Windows.Forms.RadioButton' にキャストできません。*/
-            {
-                switch (log.Text)
-                {
-                    case "log_doing":
-                        i_status = 1;
-                        break;
-                    case "log_unofficial":
-                        i_status = 2;
-                        break;
-                    case "log_decline":
-                        i_status = 3;
-                        break;
-                }
-            }
+            if (log_doing.Checked)
+                i_status = 1;
+            else if (log_unofficial.Checked)
+                i_status = 2;
+            else if (log_decline.Checked)
+                i_status = 3;
 
-            //活動履歴確認
-            MessageBox.Show(date_1st.Value.ToString(), "chech");
+            string[] log = new string[20];
+            //配列初期化
+            for (int i = 0; i < log.Length; i++) log[i] = "";
+            //活動履歴取得
+                if (log_1st.Text != "")
+                {
+                    log[0] = (date_1st.Value.ToString()).Substring(0, 10);
+                    log[1] = log_1st.Text;
+                }
+                if (log_2nd.Text != "")
+                {
+                    log[2] = (date_2nd.Value.ToString()).Substring(0, 10);
+                    log[3] = log_2nd.Text;
+                }
+                if (log_3rd.Text != "")
+                {
+                    log[4] = (date_3rd.Value.ToString()).Substring(0, 10);
+                    log[5] = log_3rd.Text;
+                }
+                if (log_4th.Text != "")
+                {
+                    log[6] = (date_4th.Value.ToString()).Substring(0, 10);
+                    log[7] = log_4th.Text;
+                }
+                if (log_5th.Text != "")
+                {
+                    log[8] = (date_5th.Value.ToString()).Substring(0, 10);
+                    log[9] = log_5th.Text;
+                }
+                if (log_6th.Text != "")
+                {
+                    log[10] = (date_6th.Value.ToString()).Substring(0, 10);
+                    log[11] = log_6th.Text;
+                }
+                if (log_7th.Text != "")
+                {
+                    log[12] = (date_7th.Value.ToString()).Substring(0, 10);
+                    log[13] = log_7th.Text;
+                }
+                if (log_8th.Text != "")
+                {
+                    log[14] = (date_8th.Value.ToString()).Substring(0, 10);
+                    log[15] = log_8th.Text;
+                }
+                if (log_9th.Text != "")
+                {
+                    log[16] = (date_9th.Value.ToString()).Substring(0, 10);
+                    log[17] = log_9th.Text;
+                }
+                if (log_10th.Text != "")
+                {
+                    log[18] = (date_10th.Value.ToString()).Substring(0, 10);
+                    log[19] = log_10th.Text;
+                }
+
+            //新規保存時
+            if (new_contents)
+            {
+                contents_id = saved_data.Length;
+                string saving_string = contents_id.ToString() + "," + name + "," + service + "," + i_status.ToString();
+                for (int i = 0; i < log.Length; i++)
+                    saving_string = saving_string + "," + log[i];
+                Array.Resize(ref saved_data, saved_data.Length + 1);
+                saved_data[saved_data.Length - 1] = saving_string;
+                listBox1.Items.Add(name);
+            }
+            MessageBox.Show("データを保存しました！", "Data saving!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            data_saving();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
