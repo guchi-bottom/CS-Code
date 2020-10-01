@@ -68,8 +68,8 @@
             this.date_2nd = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.log_1st = new System.Windows.Forms.TextBox();
-            this.date_1st = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
+            this.date_1st = new System.Windows.Forms.DateTimePicker();
             this.group_status.SuspendLayout();
             this.group_log.SuspendLayout();
             this.SuspendLayout();
@@ -187,6 +187,7 @@
             // 
             // group_log
             // 
+            this.group_log.Controls.Add(this.date_1st);
             this.group_log.Controls.Add(this.data_del);
             this.group_log.Controls.Add(this.log_10th);
             this.group_log.Controls.Add(this.date_10th);
@@ -217,7 +218,6 @@
             this.group_log.Controls.Add(this.date_2nd);
             this.group_log.Controls.Add(this.label4);
             this.group_log.Controls.Add(this.log_1st);
-            this.group_log.Controls.Add(this.date_1st);
             this.group_log.Controls.Add(this.label3);
             this.group_log.Location = new System.Drawing.Point(198, 133);
             this.group_log.Margin = new System.Windows.Forms.Padding(2);
@@ -481,15 +481,6 @@
             this.log_1st.Size = new System.Drawing.Size(426, 25);
             this.log_1st.TabIndex = 8;
             // 
-            // date_1st
-            // 
-            this.date_1st.Location = new System.Drawing.Point(65, 25);
-            this.date_1st.Margin = new System.Windows.Forms.Padding(2);
-            this.date_1st.Name = "date_1st";
-            this.date_1st.Size = new System.Drawing.Size(200, 25);
-            this.date_1st.TabIndex = 7;
-            this.date_1st.Value = new System.DateTime(2020, 10, 1, 0, 0, 0, 0);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -499,6 +490,14 @@
             this.label3.Size = new System.Drawing.Size(42, 18);
             this.label3.TabIndex = 6;
             this.label3.Text = "No.1";
+            // 
+            // date_1st
+            // 
+            this.date_1st.Location = new System.Drawing.Point(65, 25);
+            this.date_1st.Margin = new System.Windows.Forms.Padding(2);
+            this.date_1st.Name = "date_1st";
+            this.date_1st.Size = new System.Drawing.Size(200, 25);
+            this.date_1st.TabIndex = 37;
             // 
             // Form1
             // 
@@ -567,8 +566,8 @@
         private System.Windows.Forms.DateTimePicker date_2nd;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox log_1st;
-        private System.Windows.Forms.DateTimePicker date_1st;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker date_1st;
     }
 }
 
