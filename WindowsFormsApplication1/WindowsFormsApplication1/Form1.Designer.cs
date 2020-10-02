@@ -39,6 +39,7 @@
             this.log_decline = new System.Windows.Forms.RadioButton();
             this.group_status = new System.Windows.Forms.GroupBox();
             this.group_log = new System.Windows.Forms.GroupBox();
+            this.date_1st = new System.Windows.Forms.DateTimePicker();
             this.data_del = new System.Windows.Forms.Button();
             this.log_10th = new System.Windows.Forms.TextBox();
             this.date_10th = new System.Windows.Forms.DateTimePicker();
@@ -69,7 +70,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.log_1st = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.date_1st = new System.Windows.Forms.DateTimePicker();
             this.group_status.SuspendLayout();
             this.group_log.SuspendLayout();
             this.SuspendLayout();
@@ -77,22 +77,22 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 18;
+            this.listBox1.ItemHeight = 12;
             this.listBox1.Items.AddRange(new object[] {
             "(新規登録)"});
-            this.listBox1.Location = new System.Drawing.Point(12, 12);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.listBox1.Location = new System.Drawing.Point(7, 8);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(176, 508);
+            this.listBox1.Size = new System.Drawing.Size(107, 340);
             this.listBox1.TabIndex = 0;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // data_add
             // 
-            this.data_add.Location = new System.Drawing.Point(6, 340);
-            this.data_add.Margin = new System.Windows.Forms.Padding(2);
+            this.data_add.Location = new System.Drawing.Point(4, 235);
+            this.data_add.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.data_add.Name = "data_add";
-            this.data_add.Size = new System.Drawing.Size(188, 29);
+            this.data_add.Size = new System.Drawing.Size(113, 19);
             this.data_add.TabIndex = 1;
             this.data_add.Text = "登録";
             this.data_add.UseVisualStyleBackColor = true;
@@ -100,48 +100,48 @@
             // 
             // name_company
             // 
-            this.name_company.Location = new System.Drawing.Point(321, 8);
-            this.name_company.Margin = new System.Windows.Forms.Padding(2);
+            this.name_company.Location = new System.Drawing.Point(193, 5);
+            this.name_company.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.name_company.Name = "name_company";
-            this.name_company.Size = new System.Drawing.Size(586, 25);
+            this.name_company.Size = new System.Drawing.Size(353, 19);
             this.name_company.TabIndex = 2;
             // 
             // corp_name
             // 
             this.corp_name.AutoSize = true;
-            this.corp_name.Location = new System.Drawing.Point(218, 12);
-            this.corp_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.corp_name.Location = new System.Drawing.Point(131, 8);
+            this.corp_name.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.corp_name.Name = "corp_name";
-            this.corp_name.Size = new System.Drawing.Size(62, 18);
+            this.corp_name.Size = new System.Drawing.Size(41, 12);
             this.corp_name.TabIndex = 3;
             this.corp_name.Text = "企業名";
             // 
             // service
             // 
             this.service.AutoSize = true;
-            this.service.Location = new System.Drawing.Point(195, 43);
-            this.service.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.service.Location = new System.Drawing.Point(117, 29);
+            this.service.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.service.Name = "service";
-            this.service.Size = new System.Drawing.Size(101, 18);
+            this.service.Size = new System.Drawing.Size(66, 12);
             this.service.TabIndex = 5;
             this.service.Text = "利用サービス";
             // 
             // name_service
             // 
-            this.name_service.Location = new System.Drawing.Point(321, 40);
-            this.name_service.Margin = new System.Windows.Forms.Padding(2);
+            this.name_service.Location = new System.Drawing.Point(193, 27);
+            this.name_service.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.name_service.Name = "name_service";
-            this.name_service.Size = new System.Drawing.Size(586, 25);
+            this.name_service.Size = new System.Drawing.Size(353, 19);
             this.name_service.TabIndex = 4;
             // 
             // log_doing
             // 
             this.log_doing.AutoSize = true;
             this.log_doing.Checked = true;
-            this.log_doing.Location = new System.Drawing.Point(6, 24);
-            this.log_doing.Margin = new System.Windows.Forms.Padding(2);
+            this.log_doing.Location = new System.Drawing.Point(4, 16);
+            this.log_doing.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.log_doing.Name = "log_doing";
-            this.log_doing.Size = new System.Drawing.Size(87, 22);
+            this.log_doing.Size = new System.Drawing.Size(59, 16);
             this.log_doing.TabIndex = 6;
             this.log_doing.TabStop = true;
             this.log_doing.Text = "活動中";
@@ -150,10 +150,10 @@
             // log_unofficial
             // 
             this.log_unofficial.AutoSize = true;
-            this.log_unofficial.Location = new System.Drawing.Point(239, 24);
-            this.log_unofficial.Margin = new System.Windows.Forms.Padding(2);
+            this.log_unofficial.Location = new System.Drawing.Point(143, 16);
+            this.log_unofficial.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.log_unofficial.Name = "log_unofficial";
-            this.log_unofficial.Size = new System.Drawing.Size(105, 22);
+            this.log_unofficial.Size = new System.Drawing.Size(71, 16);
             this.log_unofficial.TabIndex = 7;
             this.log_unofficial.TabStop = true;
             this.log_unofficial.Text = "内定獲得";
@@ -162,10 +162,10 @@
             // log_decline
             // 
             this.log_decline.AutoSize = true;
-            this.log_decline.Location = new System.Drawing.Point(496, 24);
-            this.log_decline.Margin = new System.Windows.Forms.Padding(2);
+            this.log_decline.Location = new System.Drawing.Point(298, 16);
+            this.log_decline.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.log_decline.Name = "log_decline";
-            this.log_decline.Size = new System.Drawing.Size(87, 22);
+            this.log_decline.Size = new System.Drawing.Size(59, 16);
             this.log_decline.TabIndex = 8;
             this.log_decline.TabStop = true;
             this.log_decline.Text = "辞退等";
@@ -176,11 +176,11 @@
             this.group_status.Controls.Add(this.log_doing);
             this.group_status.Controls.Add(this.log_decline);
             this.group_status.Controls.Add(this.log_unofficial);
-            this.group_status.Location = new System.Drawing.Point(198, 71);
-            this.group_status.Margin = new System.Windows.Forms.Padding(2);
+            this.group_status.Location = new System.Drawing.Point(119, 47);
+            this.group_status.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.group_status.Name = "group_status";
-            this.group_status.Padding = new System.Windows.Forms.Padding(2);
-            this.group_status.Size = new System.Drawing.Size(709, 55);
+            this.group_status.Padding = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.group_status.Size = new System.Drawing.Size(425, 37);
             this.group_status.TabIndex = 9;
             this.group_status.TabStop = false;
             this.group_status.Text = "ステータス";
@@ -219,21 +219,29 @@
             this.group_log.Controls.Add(this.label4);
             this.group_log.Controls.Add(this.log_1st);
             this.group_log.Controls.Add(this.label3);
-            this.group_log.Location = new System.Drawing.Point(198, 133);
-            this.group_log.Margin = new System.Windows.Forms.Padding(2);
+            this.group_log.Location = new System.Drawing.Point(119, 89);
+            this.group_log.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.group_log.Name = "group_log";
-            this.group_log.Padding = new System.Windows.Forms.Padding(2);
-            this.group_log.Size = new System.Drawing.Size(709, 382);
+            this.group_log.Padding = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.group_log.Size = new System.Drawing.Size(425, 259);
             this.group_log.TabIndex = 10;
             this.group_log.TabStop = false;
             this.group_log.Text = "活動履歴";
             // 
+            // date_1st
+            // 
+            this.date_1st.Location = new System.Drawing.Point(39, 17);
+            this.date_1st.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.date_1st.Name = "date_1st";
+            this.date_1st.Size = new System.Drawing.Size(122, 19);
+            this.date_1st.TabIndex = 37;
+            // 
             // data_del
             // 
-            this.data_del.Location = new System.Drawing.Point(510, 340);
-            this.data_del.Margin = new System.Windows.Forms.Padding(2);
+            this.data_del.Location = new System.Drawing.Point(307, 235);
+            this.data_del.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.data_del.Name = "data_del";
-            this.data_del.Size = new System.Drawing.Size(188, 29);
+            this.data_del.Size = new System.Drawing.Size(113, 19);
             this.data_del.TabIndex = 36;
             this.data_del.Text = "クリア";
             this.data_del.UseVisualStyleBackColor = true;
@@ -241,269 +249,261 @@
             // 
             // log_10th
             // 
-            this.log_10th.Location = new System.Drawing.Point(271, 304);
-            this.log_10th.Margin = new System.Windows.Forms.Padding(2);
+            this.log_10th.Location = new System.Drawing.Point(163, 206);
+            this.log_10th.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.log_10th.Name = "log_10th";
-            this.log_10th.Size = new System.Drawing.Size(426, 25);
+            this.log_10th.Size = new System.Drawing.Size(257, 19);
             this.log_10th.TabIndex = 35;
             // 
             // date_10th
             // 
-            this.date_10th.Location = new System.Drawing.Point(65, 304);
-            this.date_10th.Margin = new System.Windows.Forms.Padding(2);
+            this.date_10th.Location = new System.Drawing.Point(39, 206);
+            this.date_10th.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.date_10th.Name = "date_10th";
-            this.date_10th.Size = new System.Drawing.Size(200, 25);
+            this.date_10th.Size = new System.Drawing.Size(122, 19);
             this.date_10th.TabIndex = 34;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 308);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Location = new System.Drawing.Point(4, 209);
+            this.label12.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(51, 18);
+            this.label12.Size = new System.Drawing.Size(33, 12);
             this.label12.TabIndex = 33;
             this.label12.Text = "No.10";
             // 
             // log_9th
             // 
-            this.log_9th.Location = new System.Drawing.Point(271, 272);
-            this.log_9th.Margin = new System.Windows.Forms.Padding(2);
+            this.log_9th.Location = new System.Drawing.Point(163, 185);
+            this.log_9th.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.log_9th.Name = "log_9th";
-            this.log_9th.Size = new System.Drawing.Size(426, 25);
+            this.log_9th.Size = new System.Drawing.Size(257, 19);
             this.log_9th.TabIndex = 32;
             // 
             // date_9th
             // 
-            this.date_9th.Location = new System.Drawing.Point(65, 272);
-            this.date_9th.Margin = new System.Windows.Forms.Padding(2);
+            this.date_9th.Location = new System.Drawing.Point(39, 185);
+            this.date_9th.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.date_9th.Name = "date_9th";
-            this.date_9th.Size = new System.Drawing.Size(200, 25);
+            this.date_9th.Size = new System.Drawing.Size(122, 19);
             this.date_9th.TabIndex = 31;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 278);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Location = new System.Drawing.Point(4, 188);
+            this.label11.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(42, 18);
+            this.label11.Size = new System.Drawing.Size(27, 12);
             this.label11.TabIndex = 30;
             this.label11.Text = "No.9";
             // 
             // log_8th
             // 
-            this.log_8th.Location = new System.Drawing.Point(271, 242);
-            this.log_8th.Margin = new System.Windows.Forms.Padding(2);
+            this.log_8th.Location = new System.Drawing.Point(163, 164);
+            this.log_8th.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.log_8th.Name = "log_8th";
-            this.log_8th.Size = new System.Drawing.Size(426, 25);
+            this.log_8th.Size = new System.Drawing.Size(257, 19);
             this.log_8th.TabIndex = 29;
             // 
             // date_8th
             // 
-            this.date_8th.Location = new System.Drawing.Point(65, 242);
-            this.date_8th.Margin = new System.Windows.Forms.Padding(2);
+            this.date_8th.Location = new System.Drawing.Point(39, 164);
+            this.date_8th.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.date_8th.Name = "date_8th";
-            this.date_8th.Size = new System.Drawing.Size(200, 25);
+            this.date_8th.Size = new System.Drawing.Size(122, 19);
             this.date_8th.TabIndex = 28;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 247);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Location = new System.Drawing.Point(4, 167);
+            this.label10.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(42, 18);
+            this.label10.Size = new System.Drawing.Size(27, 12);
             this.label10.TabIndex = 27;
             this.label10.Text = "No.8";
             // 
             // log_7th
             // 
-            this.log_7th.Location = new System.Drawing.Point(271, 211);
-            this.log_7th.Margin = new System.Windows.Forms.Padding(2);
+            this.log_7th.Location = new System.Drawing.Point(163, 143);
+            this.log_7th.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.log_7th.Name = "log_7th";
-            this.log_7th.Size = new System.Drawing.Size(426, 25);
+            this.log_7th.Size = new System.Drawing.Size(257, 19);
             this.log_7th.TabIndex = 26;
             // 
             // date_7th
             // 
-            this.date_7th.Location = new System.Drawing.Point(65, 211);
-            this.date_7th.Margin = new System.Windows.Forms.Padding(2);
+            this.date_7th.Location = new System.Drawing.Point(39, 143);
+            this.date_7th.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.date_7th.Name = "date_7th";
-            this.date_7th.Size = new System.Drawing.Size(200, 25);
+            this.date_7th.Size = new System.Drawing.Size(122, 19);
             this.date_7th.TabIndex = 25;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 216);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Location = new System.Drawing.Point(4, 146);
+            this.label9.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(42, 18);
+            this.label9.Size = new System.Drawing.Size(27, 12);
             this.label9.TabIndex = 24;
             this.label9.Text = "No.7";
             // 
             // log_6th
             // 
-            this.log_6th.Location = new System.Drawing.Point(271, 180);
-            this.log_6th.Margin = new System.Windows.Forms.Padding(2);
+            this.log_6th.Location = new System.Drawing.Point(163, 122);
+            this.log_6th.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.log_6th.Name = "log_6th";
-            this.log_6th.Size = new System.Drawing.Size(426, 25);
+            this.log_6th.Size = new System.Drawing.Size(257, 19);
             this.log_6th.TabIndex = 23;
             // 
             // date_6th
             // 
-            this.date_6th.Location = new System.Drawing.Point(65, 180);
-            this.date_6th.Margin = new System.Windows.Forms.Padding(2);
+            this.date_6th.Location = new System.Drawing.Point(39, 122);
+            this.date_6th.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.date_6th.Name = "date_6th";
-            this.date_6th.Size = new System.Drawing.Size(200, 25);
+            this.date_6th.Size = new System.Drawing.Size(122, 19);
             this.date_6th.TabIndex = 22;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 185);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Location = new System.Drawing.Point(4, 125);
+            this.label8.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(42, 18);
+            this.label8.Size = new System.Drawing.Size(27, 12);
             this.label8.TabIndex = 21;
             this.label8.Text = "No.6";
             // 
             // log_5th
             // 
-            this.log_5th.Location = new System.Drawing.Point(271, 149);
-            this.log_5th.Margin = new System.Windows.Forms.Padding(2);
+            this.log_5th.Location = new System.Drawing.Point(163, 101);
+            this.log_5th.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.log_5th.Name = "log_5th";
-            this.log_5th.Size = new System.Drawing.Size(426, 25);
+            this.log_5th.Size = new System.Drawing.Size(257, 19);
             this.log_5th.TabIndex = 20;
             // 
             // date_5th
             // 
-            this.date_5th.Location = new System.Drawing.Point(65, 149);
-            this.date_5th.Margin = new System.Windows.Forms.Padding(2);
+            this.date_5th.Location = new System.Drawing.Point(39, 101);
+            this.date_5th.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.date_5th.Name = "date_5th";
-            this.date_5th.Size = new System.Drawing.Size(200, 25);
+            this.date_5th.Size = new System.Drawing.Size(122, 19);
             this.date_5th.TabIndex = 19;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 154);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(4, 104);
+            this.label7.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 18);
+            this.label7.Size = new System.Drawing.Size(27, 12);
             this.label7.TabIndex = 18;
             this.label7.Text = "No.5";
             // 
             // log_4th
             // 
-            this.log_4th.Location = new System.Drawing.Point(271, 118);
-            this.log_4th.Margin = new System.Windows.Forms.Padding(2);
+            this.log_4th.Location = new System.Drawing.Point(163, 80);
+            this.log_4th.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.log_4th.Name = "log_4th";
-            this.log_4th.Size = new System.Drawing.Size(426, 25);
+            this.log_4th.Size = new System.Drawing.Size(257, 19);
             this.log_4th.TabIndex = 17;
             // 
             // date_4th
             // 
-            this.date_4th.Location = new System.Drawing.Point(65, 118);
-            this.date_4th.Margin = new System.Windows.Forms.Padding(2);
+            this.date_4th.Location = new System.Drawing.Point(39, 80);
+            this.date_4th.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.date_4th.Name = "date_4th";
-            this.date_4th.Size = new System.Drawing.Size(200, 25);
+            this.date_4th.Size = new System.Drawing.Size(122, 19);
             this.date_4th.TabIndex = 16;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 122);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(4, 83);
+            this.label6.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(42, 18);
+            this.label6.Size = new System.Drawing.Size(27, 12);
             this.label6.TabIndex = 15;
             this.label6.Text = "No.4";
             // 
             // log_3rd
             // 
-            this.log_3rd.Location = new System.Drawing.Point(271, 86);
-            this.log_3rd.Margin = new System.Windows.Forms.Padding(2);
+            this.log_3rd.Location = new System.Drawing.Point(163, 59);
+            this.log_3rd.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.log_3rd.Name = "log_3rd";
-            this.log_3rd.Size = new System.Drawing.Size(426, 25);
+            this.log_3rd.Size = new System.Drawing.Size(257, 19);
             this.log_3rd.TabIndex = 14;
             // 
             // date_3rd
             // 
-            this.date_3rd.Location = new System.Drawing.Point(65, 86);
-            this.date_3rd.Margin = new System.Windows.Forms.Padding(2);
+            this.date_3rd.Location = new System.Drawing.Point(39, 59);
+            this.date_3rd.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.date_3rd.Name = "date_3rd";
-            this.date_3rd.Size = new System.Drawing.Size(200, 25);
+            this.date_3rd.Size = new System.Drawing.Size(122, 19);
             this.date_3rd.TabIndex = 13;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 92);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(4, 62);
+            this.label5.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 18);
+            this.label5.Size = new System.Drawing.Size(27, 12);
             this.label5.TabIndex = 12;
             this.label5.Text = "No.3";
             // 
             // log_2nd
             // 
-            this.log_2nd.Location = new System.Drawing.Point(271, 56);
-            this.log_2nd.Margin = new System.Windows.Forms.Padding(2);
+            this.log_2nd.Location = new System.Drawing.Point(163, 38);
+            this.log_2nd.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.log_2nd.Name = "log_2nd";
-            this.log_2nd.Size = new System.Drawing.Size(426, 25);
+            this.log_2nd.Size = new System.Drawing.Size(257, 19);
             this.log_2nd.TabIndex = 11;
             // 
             // date_2nd
             // 
-            this.date_2nd.Location = new System.Drawing.Point(65, 56);
-            this.date_2nd.Margin = new System.Windows.Forms.Padding(2);
+            this.date_2nd.Location = new System.Drawing.Point(39, 38);
+            this.date_2nd.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.date_2nd.Name = "date_2nd";
-            this.date_2nd.Size = new System.Drawing.Size(200, 25);
+            this.date_2nd.Size = new System.Drawing.Size(122, 19);
             this.date_2nd.TabIndex = 10;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 61);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(4, 41);
+            this.label4.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 18);
+            this.label4.Size = new System.Drawing.Size(27, 12);
             this.label4.TabIndex = 9;
             this.label4.Text = "No.2";
             // 
             // log_1st
             // 
-            this.log_1st.Location = new System.Drawing.Point(271, 25);
-            this.log_1st.Margin = new System.Windows.Forms.Padding(2);
+            this.log_1st.Location = new System.Drawing.Point(163, 17);
+            this.log_1st.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.log_1st.Name = "log_1st";
-            this.log_1st.Size = new System.Drawing.Size(426, 25);
+            this.log_1st.Size = new System.Drawing.Size(257, 19);
             this.log_1st.TabIndex = 8;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 30);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(4, 20);
+            this.label3.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 18);
+            this.label3.Size = new System.Drawing.Size(27, 12);
             this.label3.TabIndex = 6;
             this.label3.Text = "No.1";
             // 
-            // date_1st
-            // 
-            this.date_1st.Location = new System.Drawing.Point(65, 25);
-            this.date_1st.Margin = new System.Windows.Forms.Padding(2);
-            this.date_1st.Name = "date_1st";
-            this.date_1st.Size = new System.Drawing.Size(200, 25);
-            this.date_1st.TabIndex = 37;
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(919, 530);
+            this.ClientSize = new System.Drawing.Size(551, 353);
             this.Controls.Add(this.group_log);
             this.Controls.Add(this.group_status);
             this.Controls.Add(this.service);
@@ -511,7 +511,7 @@
             this.Controls.Add(this.corp_name);
             this.Controls.Add(this.name_company);
             this.Controls.Add(this.listBox1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
