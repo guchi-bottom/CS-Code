@@ -44,7 +44,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void data_saving()
+        private void data_save()
         {
             try
             {
@@ -139,19 +139,29 @@ namespace WindowsFormsApplication1
             }
 
             //新規保存時
+            string saving_string = contents_id.ToString() + "," + name + "," + service + "," + i_status.ToString();
+            for (int i = 0; i < log.Length; i++)
+                saving_string = saving_string + "," + log[i];
             if (new_contents)
             {
                 contents_id = saved_data.Length;
-                string saving_string = contents_id.ToString() + "," + name + "," + service + "," + i_status.ToString();
-                for (int i = 0; i < log.Length; i++)
-                    saving_string = saving_string + "," + log[i];
                 Array.Resize(ref saved_data, saved_data.Length + 1);
                 saved_data[saved_data.Length - 1] = saving_string;
                 listBox1.Items.Add(name);
+                data_save();
                 MessageBox.Show("データを保存しました！", "Datasaving!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                data_reset();
             }
-            data_saving();
-            data_reset();
+            else
+            {
+                int insert_id = contents_id;
+                saved_data[contents_id] = saving_string;
+                listBox1.SelectedIndex = 0;
+                listBox1.Items.RemoveAt(insert_id);
+                listBox1.Items.Insert(insert_id, name);
+                data_save();
+                MessageBox.Show("データを上書き保存しました！", "Datasaving!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -178,14 +188,53 @@ namespace WindowsFormsApplication1
         {
             DialogResult listen = DialogResult.Cancel;
             if (new_contents)
-            {
                 listen = MessageBox.Show("入力された全ての情報をクリアします\n本当にクリアしますか？", "Queestion"
                 , MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
-            }
+            else
+                listen = MessageBox.Show("入力された全ての情報を削除します\n本当に削除しますか？", "Queestion"
+                    , MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
             if (listen == DialogResult.OK)
             {
+                if (new_contents == false)
+                {
+                    //リスト削除
+                    int deleted_id = contents_id;
+                    Console.WriteLine("表示インデックス 0へ");
+                    listBox1.SelectedIndex = 0;
+                    Console.WriteLine("アイテム削除");
+                    listBox1.Items.RemoveAt(deleted_id);
+                    //Listboxデータを削除してインデックスが変更された際にロードしてる。これが問題。
+                    //データ削除
+                    //Array.Clear(saved_data, contents_id, 1);
+                    //中身をクリアしただけでインデックス自体存在。これがネックに。
+                    Console.WriteLine("配列削除");
+                    var list = new List<string>();
+                    list.AddRange(saved_data);
+                    list.Remove(saved_data[deleted_id]);
+                    saved_data = list.ToArray();
+
+                    //配列id変更
+                    Console.WriteLine("ID変更");
+                    for (int i = deleted_id; i < saved_data.Length; i++)
+                    {
+                        string[] neko = saved_data[i].Split(',');
+                        int nekochan = int.Parse(neko[0]);
+                        nekochan = nekochan - 1;
+                        neko[0] = nekochan.ToString();
+                        string nekko = string.Join(",", neko);
+                        MessageBox.Show("ID編集" + nekko);
+                        saved_data[i] = nekko;
+                    }
+
+                    //書き込み
+                    //テストファイル生成して確認。ID上書き以外の動作。
+                    //data_save()
+
+                    //DEBUG
+                    for (int i = 1; i < saved_data.Length; i++)
+                        MessageBox.Show(saved_data[i]);
+                }
                 data_reset();
-                //新規登録へ
                 listBox1.SelectedIndex = 0;
             }
         }
@@ -221,6 +270,7 @@ namespace WindowsFormsApplication1
 
         private void data_load(int contents)
         {
+            Console.WriteLine("データロード");
             data_reset();
 
             string[] loading_data = saved_data[contents].Split(',');
