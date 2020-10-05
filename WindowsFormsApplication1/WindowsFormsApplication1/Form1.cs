@@ -1,12 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
 
@@ -17,13 +12,19 @@ namespace WindowsFormsApplication1
         string[] saved_data;
         bool new_contents = true;
         int contents_id = 0;
+        string path = null;
+        bool form_close = false;
 
         DateTimePicker[] date_portal = new DateTimePicker[10];
         TextBox[] log_portal = new TextBox[10];
 
         public Form1()
         {
+            Console.WriteLine("コンストラクター動作");
+            Assembly myAssembly = Assembly.GetEntryAssembly();
+            path = (myAssembly.Location).Substring(0, (myAssembly.Location).LastIndexOf("\\"));
             SetProcessDPIAware();
+            checking_directory_file(path);
             InitializeComponent();
             date_portal[0] = date_1st;
             date_portal[1] = date_2nd;
@@ -50,56 +51,28 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Assembly myAssembly = Assembly.GetEntryAssembly();
-            string path = (myAssembly.Location).Substring(0, (myAssembly.Location).LastIndexOf("\\"));
-            try
+            Console.WriteLine("Form1_Load");
+            if (form_close)
             {
-                saved_data = File.ReadAllLines("data_file/data_file.csv", Encoding.GetEncoding("UTF-8"));
-            }
-            catch (FileNotFoundException ex)
-            {
-                DialogResult checking = MessageBox.Show("データをセーブするためのCSVファイルが見つかりません。\nCSVファイルを作成しますか?", "初期起動時エラー"
-                    , MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-                if (checking == DialogResult.OK)
-                {
-                    saved_data[0] = "id,name,service,url,status,date_1,log_1,date_2,log_2,date_3,log_3,date_4,log_4,date_5,log_5,date_6,log_6,date_7,log_7,date_8,log_8,date_9,log_9,date_10,log_10,memo";
-                    data_save();
-                    MessageBox.Show("作成完了しました。\nプログラムを起動します。", "作成完了"
-                        , MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (DirectoryNotFoundException ex)
-            {
-                DialogResult checking = MessageBox.Show("データをセーブするためのディレクトリ, ファイルが見つかりません。\nディレクトリ, ファイルを作成しますか?", "初期起動時エラー", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-                if (checking == DialogResult.Yes)
-                {
-                    path = path + "\\data_file";
-                    Directory.CreateDirectory(path);
-                    string[] header_csv = new string[1];
-                    header_csv[0] = "id,name,service,url,status,date_1,log_1,date_2,log_2,date_3,log_3,date_4,log_4,date_5,log_5,date_6,log_6,date_7,log_7,date_8,log_8,date_9,log_9,date_10,log_10,memo";
-                    saved_data = header_csv;
-                    data_save();
-                    MessageBox.Show("作成完了しました。\nプログラムを起動します。", "作成完了", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("深刻なエラーが発生しました。プログラムを終了します。", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("Form1_Load - form_close");
                 this.Close();
             }
-
-            listBox1.SelectedIndex = 0;
-            if (saved_data.Length != 1)
+            else
             {
-                for (int i = 1; i < saved_data.Length; i++)
+                Console.WriteLine("Form1_Load - form_close | NOT");
+                listBox1.SelectedIndex = 0;
+                if (saved_data.Length != 1)
                 {
-                    string[] neko = saved_data[i].Split(',');
-                    listBox1.Items.Add(neko[1]);
+                    for (int i = 1; i < saved_data.Length; i++)
+                    {
+                        string[] neko = saved_data[i].Split(',');
+                        listBox1.Items.Add(neko[1]);
+                    }
                 }
             }
         }
 
-        private void data_save()
+        private void data_save(bool NOT_DELETE, string name)
         {
             Console.WriteLine("data_save()");
             try
@@ -117,22 +90,46 @@ namespace WindowsFormsApplication1
                     , writing_code[24], writing_code[25]);
                 }
                 file.Close();
+                if (NOT_DELETE)
+                {
+                    Console.WriteLine("new_contents: " + new_contents);
+                    if (new_contents)
+                    {
+                        MessageBox.Show("データを保存しました！", "Data saving!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        listBox1.Items.Add(name);
+                        data_reset();
+                    }
+                    else
+                        MessageBox.Show("データを上書き保存しました！", "Data saving!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            catch (Exception ex)
+            catch (FileNotFoundException)
             {
-                Console.WriteLine("catch - data_save");
-                MessageBox.Show("ファイルへの書き込みに失敗しました。\nファイルが存在するか, ファイルが開かれていないか確認して再実行してください。", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine("catch - data_save | FileNotFoundException");
+                checking_directory_file(path);
             }
+            catch (IOException)
+            {
+                Console.WriteLine("catch - data_save | IOException");
+                string type = null;
+                if (new_contents)
+                    type = "新規登録";
+                else
+                    type = "更新";
+                MessageBox.Show("ファイルへの書き込みに失敗しました。\nCSVファイルが開かれていないか確認し、再度" + type + "ボタンをクリックしてください。", "ERROR"
+                    , MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            //catch (Exception)
+            //{
+            //    MessageBox.Show("深刻なエラーが発生しました。", "ERROR"
+            //        , MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         private void data_add_Click(object sender, EventArgs e)
         {
             Console.WriteLine("data_add_Click");
-
-            //企業名,サービス情報取得
             string name = name_company.Text, service = name_service.Text, www_uri = URI.Text, note_string = note.Text;
-
-            //活動状況取得
             int i_status = 0;
             if (log_doing.Checked)
                 i_status = 1;
@@ -143,7 +140,6 @@ namespace WindowsFormsApplication1
 
             string[] log = new string[20];
             int log_index = 0;
-            //配列初期化
             for (int i = 0; i < 10; i++)
             {
                 if (log_portal[i].Text != "")
@@ -153,32 +149,61 @@ namespace WindowsFormsApplication1
                     log_index = log_index + 2;
                 }
             }
-
             string saving_string = contents_id.ToString() + "," + name + "," + service + "," + www_uri + "," + i_status.ToString();
             for (int i = 0; i < log.Length; i++)
                 saving_string = saving_string + "," + log[i];
             saving_string = saving_string + "," + note_string;
-            if (new_contents)
+            if (name != "" && service != "" && log[1] != "")
             {
-                Console.WriteLine("data_add_Click - 新規保存");
-                contents_id = saved_data.Length;
-                Array.Resize(ref saved_data, saved_data.Length + 1);
-                saved_data[saved_data.Length - 1] = saving_string;
-                listBox1.Items.Add(name);
-                data_save();
-                MessageBox.Show("データを保存しました！", "Data saving!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                data_reset();
+
+                if (new_contents)
+                {
+                    Console.WriteLine("data_add_Click - 新規保存");
+                    contents_id = saved_data.Length;
+                    Array.Resize(ref saved_data, saved_data.Length + 1);
+                    saved_data[saved_data.Length - 1] = saving_string;
+                    data_save(true, name);
+                }
+                else
+                {
+                    Console.WriteLine("data_add_Click - 上書き保存");
+                    int insert_id = contents_id;
+                    saved_data[contents_id] = saving_string;
+                    listBox1.SelectedIndex = 0;
+                    new_contents = false;
+                    listBox1.Items.RemoveAt(insert_id);
+                    listBox1.Items.Insert(insert_id, name);
+                    data_save(true, null);
+                    listBox1.SelectedIndex = insert_id;
+                }
             }
             else
             {
-                Console.WriteLine("data_add_Click - 上書き保存");
-                int insert_id = contents_id;
-                saved_data[contents_id] = saving_string;
-                listBox1.SelectedIndex = 0;
-                listBox1.Items.RemoveAt(insert_id);
-                listBox1.Items.Insert(insert_id, name);
-                data_save();
-                MessageBox.Show("データを上書き保存しました！", "Data saving!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string error_text = "";
+                if (name == "")
+                    error_text = "企業名";
+                if(service == "")
+                {
+                    if (error_text == "")
+                        error_text = "利用サービス名";
+                    else
+                        error_text = error_text + "、利用サービス名";
+                }
+                if(log[1] == "")
+                {
+                    if (error_text == "")
+                        error_text = "活動履歴 No.1";
+                    else
+                        error_text = error_text + "、活動履歴 No.1";
+                }
+                string rewrite_code = "";
+                if (new_contents)
+                    rewrite_code = "新規登録";
+                else
+                    rewrite_code = "更新";
+
+                MessageBox.Show(error_text + "が入力されていません。\n入力後、再度\"" + rewrite_code + "\"ボタンをクリックしてください。", "ERROR"
+                    ,MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -245,7 +270,7 @@ namespace WindowsFormsApplication1
                             string nekko = string.Join(",", neko);
                             saved_data[i] = nekko;
                         }
-                        data_save();
+                        data_save(false, null);
                     }
                 }
                 data_reset();
@@ -255,6 +280,7 @@ namespace WindowsFormsApplication1
 
         private void data_reset()
         {
+            Console.WriteLine("data_reset");
             name_company.Text = "";
             name_service.Text = "";
             URI.Text = "";
@@ -272,13 +298,9 @@ namespace WindowsFormsApplication1
 
         private void data_load(int contents)
         {
-            Console.WriteLine("データロード");
             data_reset();
-
+            Console.WriteLine("data_load");
             string[] loading_data = saved_data[contents].Split(',');
-            // DEBUG
-            Console.WriteLine("loading_data.Length: " + loading_data.Length);
-            // DEBUG
             name_company.Text = loading_data[1];
             name_service.Text = loading_data[2];
             URI.Text = loading_data[3];
@@ -308,7 +330,61 @@ namespace WindowsFormsApplication1
             //OutOfIndex
         }
 
-    [System.Runtime.InteropServices.DllImport("user32.dll")]
-    private static extern bool SetProcessDPIAware();
+        private void checking_directory_file(string path)
+        {
+            Console.WriteLine("checking_directory_file");
+            try
+            {
+                Console.WriteLine("checking_directory_file - try");
+                saved_data = File.ReadAllLines("data_file/data_file.csv", Encoding.GetEncoding("UTF-8"));
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine("checking_directory_file - catch | FileNotFoundException");
+                DialogResult checking = MessageBox.Show("データをセーブするためのCSVファイルが見つかりません。\nCSVファイルを作成しますか?", "初期起動時エラー"
+                    , MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                if (checking == DialogResult.OK)
+                    creating_directory_file(false, path);
+                else
+                {
+                    MessageBox.Show("CSVファイルが見つかりませんでした。\nプログラムを終了します。", "ERROR"
+                        , MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    form_close = true;
+                }
+            }
+            catch (DirectoryNotFoundException ex)
+            {
+                Console.WriteLine("checking_directory_file - catch | DirectoryNotFoundException");
+                DialogResult checking = MessageBox.Show("データをセーブするためのディレクトリ, ファイルが見つかりません。\nディレクトリ, ファイルを作成しますか?", "初期起動時エラー", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                if (checking == DialogResult.Yes)
+                    creating_directory_file(true, path);
+                else
+                {
+                    MessageBox.Show("ディレクトリが見つかりませんでした。\nプログラムを終了します。", "ERROR"
+                        , MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    form_close = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("深刻なエラーが発生しました。プログラムを終了します。", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                form_close = true;
+            }
+        }
+
+        private void creating_directory_file(bool directory, string path)
+        {
+            Console.WriteLine("creating_directory_file");
+            if (directory)
+                Directory.CreateDirectory(path + "\\data_file");
+            saved_data = new string[1];
+            saved_data[0] = "id,name,service,url,status,date_1,log_1,date_2,log_2,date_3,log_3,date_4,log_4,date_5,log_5,date_6,log_6,date_7,log_7,date_8,log_8,date_9,log_9,date_10,log_10,memo";
+            data_save(false, null);
+            MessageBox.Show("作成完了しました。\nプログラムを起動します。", "作成完了"
+                , MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern bool SetProcessDPIAware();
     }
 }
