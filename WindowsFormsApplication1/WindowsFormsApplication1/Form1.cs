@@ -9,23 +9,54 @@ namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
+        //CSV関連データ保持配列
+        //書き出すデータ, 読み込んだデータを保持
         string[] saved_data;
+
+        //新規登録かどうかを判断
         bool new_contents = true;
+
+        //フォームに表示しているコンテンツのインデックス(saved_data)
         int contents_id = 0;
+
+        //当プログラム(.exe)の完全パス格納
         string path = null;
+
+        //ファイル, ディレクトリがない時に作成しなかった場合のClose識別用
         bool form_close = false;
 
+        //DateTimePickerのアクセスを容易にする配列
         DateTimePicker[] date_portal = new DateTimePicker[10];
+
+        //date_portalのTextBox(活動履歴)版
         TextBox[] log_portal = new TextBox[10];
 
         public Form1()
         {
-            Console.WriteLine("コンストラクター動作");
-            Assembly myAssembly = Assembly.GetEntryAssembly();
-            path = (myAssembly.Location).Substring(0, (myAssembly.Location).LastIndexOf("\\"));
+            /*****************************************************
+            * 名前: Form1
+            * 種別: コンストラクタ
+            * 引数: 無し
+            * コールタイミング
+            * 1. executionファイル(.exe)起動時
+            * 動作内容
+            * 1. .exeファイルの完全パス取得
+            * 2. 高DPI環境対応用メソッド呼び出し
+            * 3. フォーム初期化用メソッド呼び出し
+            * 4. CSVファイル格納ディレクトリ, CSVファイル存在確認用メソッド呼び出し
+            * 5. DateTimePickerコンポーネントアクセス用配列の代入
+            * 6. TextBoxコンポーネントアクセス用配列の代入
+            *****************************************************/
+
+            // 1.1 - アセンブリ情報から.exeファイルの格納されているディレクトリの完全パスを取得("\Graduations.exe"は不要。故にSubString, LastIndexOfメソッドで削除
+            path = (Assembly.GetEntryAssembly().Location).Substring(0, (Assembly.GetEntryAssembly().Location).LastIndexOf("\\"));
+            // 1.2 - 高DPI環境対応用のメソッド呼び出し
             SetProcessDPIAware();
-            checking_directory_file(path);
+            // 1.3 - フォーム初期化用メソッド呼び出し
             InitializeComponent();
+            // 1.4 - CSVファイル格納ディレクトリ, CSVファイル存在確認用メソッド呼び出し
+            checking_directory_file(path);
+            // 1.5 - DateTimePickerコンポーネントのアクセスを容易にするための配列への代入
             date_portal[0] = date_1st;
             date_portal[1] = date_2nd;
             date_portal[2] = date_3rd;
@@ -36,6 +67,7 @@ namespace WindowsFormsApplication1
             date_portal[7] = date_8th;
             date_portal[8] = date_9th;
             date_portal[9] = date_10th;
+            // 1.6 - TextBoxコンポーネントのアクセスを容易にするための配列への代入
             log_portal[0] = log_1st;
             log_portal[1] = log_2nd;
             log_portal[2] = log_3rd;
@@ -46,11 +78,34 @@ namespace WindowsFormsApplication1
             log_portal[7] = log_8th;
             log_portal[8] = log_9th;
             log_portal[9] = log_10th;
-
         }
+
+        // Dynamic-Link Libralyファイルへのアクセス(user32.dll → ユーザーインターフェースに関係する情報を保持しているWindows提供API)
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern bool SetProcessDPIAware();
+        /*****************************************************
+         * クラス名: SetProcessDPIAware
+         * 種別: メソッド
+         * 修飾子: private(同一クラスのみアクセス) static(クラスに所属) extern(外部クラス使用)
+         * 返値: bool型
+         * 引数: 無し
+         * コールタイミング: 1. コンストラクタ呼び出し
+         * 動作内容
+         * 1. ユーザーインターフェースが高DPI環境に対応しているかどうか
+        *****************************************************/
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            /*****************************************************
+             * クラス名: Form1_Load
+             * 種別: メソッド
+             * 修飾子: private(同一クラスのみアクセス)
+             * 返値: void(無し)
+             * 引数: object sender, EvevtArgs e
+             * コールタイミング: 1. コンストラクタ呼び出し
+             * 動作内容
+             * 1. 
+            *****************************************************/
             Console.WriteLine("Form1_Load");
             if (form_close)
             {
@@ -384,7 +439,5 @@ namespace WindowsFormsApplication1
                 , MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
-        private static extern bool SetProcessDPIAware();
     }
 }
