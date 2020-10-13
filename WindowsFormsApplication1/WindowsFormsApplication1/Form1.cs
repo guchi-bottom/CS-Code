@@ -237,8 +237,9 @@ namespace WindowsFormsApplication1
             string saving_string = contents_id.ToString() + "," + name + "," + service + "," + www_uri + "," + i_status.ToString();
             for (int i = 0; i < log.Length; i++)
                 saving_string = saving_string + "," + log[i];
+            if (note_string.Contains(Environment.NewLine))
+                note_string = note_string.Replace(Environment.NewLine, "   ");
             saving_string = saving_string + "," + note_string;
-                Console.WriteLine("log[1]: " + log[1]);
             if (name != "" && service != "" && log[1] != null)
             {
                 if (new_contents)
@@ -411,8 +412,9 @@ namespace WindowsFormsApplication1
                 }
                 index = index + 2;
             }
+            if (loading_data[25].Contains("   "))
+                loading_data[25] = loading_data[25].Replace("   ", Environment.NewLine);
             note.Text = loading_data[25];
-            //OutOfIndex
         }
 
         private void checking_directory_file (string path)
