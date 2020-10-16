@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Graduations.Properties {
+namespace Graduate_App.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
