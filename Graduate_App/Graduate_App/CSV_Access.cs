@@ -13,7 +13,7 @@ namespace Graduate_App
         {
             try
             {
-                Form1.CSV_SAVE_DATA = File.ReadAllLines("data_file.csv", Encoding.GetEncoding("UTF-8"));
+                Form1.CSV_SAVE_DATA = File.ReadAllLines("就職活動履歴.csv", Encoding.GetEncoding("UTF-8"));
             }
             catch (FileNotFoundException)
             {
@@ -21,7 +21,7 @@ namespace Graduate_App
                 if (Create)
                 {
                     MessageBox.Show("ファイル作ったやで(＾ω＾）");
-                    Form1.CSV_SAVE_DATA = File.ReadAllLines("data_file.csv", Encoding.GetEncoding("UTF-8"));
+                    Form1.CSV_SAVE_DATA = File.ReadAllLines("就職活動履歴.csv", Encoding.GetEncoding("UTF-8"));
                 }
             }
             catch (IOException)
@@ -50,7 +50,7 @@ namespace Graduate_App
         {
             try
             {
-                StreamWriter Writing_File = new StreamWriter("data_file.csv", false, Encoding.UTF8);
+                StreamWriter Writing_File = new StreamWriter("就職活動履歴.csv", false, Encoding.UTF8);
                 for (int index = 0; index < CSV_SAVE_DATA.Length; index++)
                 {
                     string Save_Line = string.Join(",", CSV_SAVE_DATA[index]);

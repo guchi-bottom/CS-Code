@@ -51,6 +51,7 @@ namespace Graduate_App
             }
             catch (NullReferenceException)
             {
+                MessageBox.Show("CSVファイルが見つからないか、安らかの問題が発生しているため、アプリケーションを終了します。", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 // DEBUG
                 Close();
             }
@@ -263,7 +264,6 @@ namespace Graduate_App
                 index++;
             }
             User_Note.Text = "メモ";
-
         }
 
         public void Add_List()
