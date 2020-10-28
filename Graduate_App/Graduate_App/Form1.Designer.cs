@@ -87,14 +87,14 @@
             this.List_Comp.Location = new System.Drawing.Point(10, 10);
             this.List_Comp.Margin = new System.Windows.Forms.Padding(2);
             this.List_Comp.Name = "List_Comp";
-            this.List_Comp.Size = new System.Drawing.Size(147, 671);
+            this.List_Comp.Size = new System.Drawing.Size(147, 694);
             this.List_Comp.TabIndex = 0;
             this.List_Comp.SelectedIndexChanged += new System.EventHandler(this.List_SelectedIndexChanged);
             // 
             // CSV_Data_ADD
             // 
             this.CSV_Data_ADD.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CSV_Data_ADD.Location = new System.Drawing.Point(166, 655);
+            this.CSV_Data_ADD.Location = new System.Drawing.Point(166, 669);
             this.CSV_Data_ADD.Margin = new System.Windows.Forms.Padding(2);
             this.CSV_Data_ADD.Name = "CSV_Data_ADD";
             this.CSV_Data_ADD.Size = new System.Drawing.Size(157, 35);
@@ -116,7 +116,7 @@
             // 
             this.corp_name.AutoSize = true;
             this.corp_name.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.corp_name.Location = new System.Drawing.Point(182, 9);
+            this.corp_name.Location = new System.Drawing.Point(184, 10);
             this.corp_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.corp_name.Name = "corp_name";
             this.corp_name.Size = new System.Drawing.Size(61, 23);
@@ -127,7 +127,7 @@
             // 
             this.service.AutoSize = true;
             this.service.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.service.Location = new System.Drawing.Point(168, 41);
+            this.service.Location = new System.Drawing.Point(170, 44);
             this.service.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.service.Name = "service";
             this.service.Size = new System.Drawing.Size(94, 23);
@@ -137,7 +137,7 @@
             // Service_Name
             // 
             this.Service_Name.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Service_Name.Location = new System.Drawing.Point(268, 38);
+            this.Service_Name.Location = new System.Drawing.Point(268, 42);
             this.Service_Name.Margin = new System.Windows.Forms.Padding(2);
             this.Service_Name.Name = "Service_Name";
             this.Service_Name.Size = new System.Drawing.Size(489, 30);
@@ -189,7 +189,7 @@
             this.group_status.Controls.Add(this.Log_Decline);
             this.group_status.Controls.Add(this.Log_UnOfficial);
             this.group_status.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.group_status.Location = new System.Drawing.Point(166, 107);
+            this.group_status.Location = new System.Drawing.Point(166, 110);
             this.group_status.Margin = new System.Windows.Forms.Padding(2);
             this.group_status.Name = "group_status";
             this.group_status.Padding = new System.Windows.Forms.Padding(2);
@@ -231,11 +231,11 @@
             this.group_log.Controls.Add(this.Log_1);
             this.group_log.Controls.Add(this.label3);
             this.group_log.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.group_log.Location = new System.Drawing.Point(166, 168);
+            this.group_log.Location = new System.Drawing.Point(166, 172);
             this.group_log.Margin = new System.Windows.Forms.Padding(2);
             this.group_log.Name = "group_log";
             this.group_log.Padding = new System.Windows.Forms.Padding(2);
-            this.group_log.Size = new System.Drawing.Size(590, 346);
+            this.group_log.Size = new System.Drawing.Size(590, 356);
             this.group_log.TabIndex = 10;
             this.group_log.TabStop = false;
             this.group_log.Text = "活動履歴";
@@ -243,7 +243,7 @@
             // Date_1
             // 
             this.Date_1.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Date_1.Location = new System.Drawing.Point(54, 22);
+            this.Date_1.Location = new System.Drawing.Point(55, 27);
             this.Date_1.Margin = new System.Windows.Forms.Padding(2);
             this.Date_1.Name = "Date_1";
             this.Date_1.Size = new System.Drawing.Size(168, 30);
@@ -252,7 +252,7 @@
             // Log_10
             // 
             this.Log_10.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Log_10.Location = new System.Drawing.Point(227, 307);
+            this.Log_10.Location = new System.Drawing.Point(227, 310);
             this.Log_10.Margin = new System.Windows.Forms.Padding(2);
             this.Log_10.Name = "Log_10";
             this.Log_10.Size = new System.Drawing.Size(356, 30);
@@ -261,7 +261,7 @@
             // Date_10
             // 
             this.Date_10.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Date_10.Location = new System.Drawing.Point(54, 307);
+            this.Date_10.Location = new System.Drawing.Point(54, 310);
             this.Date_10.Margin = new System.Windows.Forms.Padding(2);
             this.Date_10.Name = "Date_10";
             this.Date_10.Size = new System.Drawing.Size(168, 30);
@@ -281,7 +281,7 @@
             // Log_9
             // 
             this.Log_9.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Log_9.Location = new System.Drawing.Point(227, 275);
+            this.Log_9.Location = new System.Drawing.Point(227, 278);
             this.Log_9.Margin = new System.Windows.Forms.Padding(2);
             this.Log_9.Name = "Log_9";
             this.Log_9.Size = new System.Drawing.Size(356, 30);
@@ -290,7 +290,7 @@
             // Date_9
             // 
             this.Date_9.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Date_9.Location = new System.Drawing.Point(54, 275);
+            this.Date_9.Location = new System.Drawing.Point(54, 278);
             this.Date_9.Margin = new System.Windows.Forms.Padding(2);
             this.Date_9.Name = "Date_9";
             this.Date_9.Size = new System.Drawing.Size(168, 30);
@@ -310,7 +310,7 @@
             // Log_8
             // 
             this.Log_8.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Log_8.Location = new System.Drawing.Point(227, 243);
+            this.Log_8.Location = new System.Drawing.Point(227, 246);
             this.Log_8.Margin = new System.Windows.Forms.Padding(2);
             this.Log_8.Name = "Log_8";
             this.Log_8.Size = new System.Drawing.Size(356, 30);
@@ -319,7 +319,7 @@
             // Date_8
             // 
             this.Date_8.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Date_8.Location = new System.Drawing.Point(54, 243);
+            this.Date_8.Location = new System.Drawing.Point(54, 246);
             this.Date_8.Margin = new System.Windows.Forms.Padding(2);
             this.Date_8.Name = "Date_8";
             this.Date_8.Size = new System.Drawing.Size(168, 30);
@@ -339,7 +339,7 @@
             // Log_7
             // 
             this.Log_7.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Log_7.Location = new System.Drawing.Point(227, 212);
+            this.Log_7.Location = new System.Drawing.Point(227, 214);
             this.Log_7.Margin = new System.Windows.Forms.Padding(2);
             this.Log_7.Name = "Log_7";
             this.Log_7.Size = new System.Drawing.Size(356, 30);
@@ -348,7 +348,7 @@
             // Date_7
             // 
             this.Date_7.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Date_7.Location = new System.Drawing.Point(54, 212);
+            this.Date_7.Location = new System.Drawing.Point(54, 214);
             this.Date_7.Margin = new System.Windows.Forms.Padding(2);
             this.Date_7.Name = "Date_7";
             this.Date_7.Size = new System.Drawing.Size(168, 30);
@@ -368,7 +368,7 @@
             // Log_6
             // 
             this.Log_6.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Log_6.Location = new System.Drawing.Point(227, 180);
+            this.Log_6.Location = new System.Drawing.Point(227, 182);
             this.Log_6.Margin = new System.Windows.Forms.Padding(2);
             this.Log_6.Name = "Log_6";
             this.Log_6.Size = new System.Drawing.Size(356, 30);
@@ -377,7 +377,7 @@
             // Date_6
             // 
             this.Date_6.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Date_6.Location = new System.Drawing.Point(54, 180);
+            this.Date_6.Location = new System.Drawing.Point(54, 182);
             this.Date_6.Margin = new System.Windows.Forms.Padding(2);
             this.Date_6.Name = "Date_6";
             this.Date_6.Size = new System.Drawing.Size(168, 30);
@@ -397,7 +397,7 @@
             // Log_5
             // 
             this.Log_5.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Log_5.Location = new System.Drawing.Point(227, 148);
+            this.Log_5.Location = new System.Drawing.Point(227, 150);
             this.Log_5.Margin = new System.Windows.Forms.Padding(2);
             this.Log_5.Name = "Log_5";
             this.Log_5.Size = new System.Drawing.Size(356, 30);
@@ -406,7 +406,7 @@
             // Date_5
             // 
             this.Date_5.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Date_5.Location = new System.Drawing.Point(54, 148);
+            this.Date_5.Location = new System.Drawing.Point(54, 150);
             this.Date_5.Margin = new System.Windows.Forms.Padding(2);
             this.Date_5.Name = "Date_5";
             this.Date_5.Size = new System.Drawing.Size(168, 30);
@@ -426,7 +426,7 @@
             // Log_4
             // 
             this.Log_4.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Log_4.Location = new System.Drawing.Point(227, 117);
+            this.Log_4.Location = new System.Drawing.Point(227, 118);
             this.Log_4.Margin = new System.Windows.Forms.Padding(2);
             this.Log_4.Name = "Log_4";
             this.Log_4.Size = new System.Drawing.Size(356, 30);
@@ -435,7 +435,7 @@
             // Date_4
             // 
             this.Date_4.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Date_4.Location = new System.Drawing.Point(54, 117);
+            this.Date_4.Location = new System.Drawing.Point(54, 118);
             this.Date_4.Margin = new System.Windows.Forms.Padding(2);
             this.Date_4.Name = "Date_4";
             this.Date_4.Size = new System.Drawing.Size(168, 30);
@@ -455,7 +455,7 @@
             // Log_3
             // 
             this.Log_3.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Log_3.Location = new System.Drawing.Point(227, 85);
+            this.Log_3.Location = new System.Drawing.Point(227, 86);
             this.Log_3.Margin = new System.Windows.Forms.Padding(2);
             this.Log_3.Name = "Log_3";
             this.Log_3.Size = new System.Drawing.Size(356, 30);
@@ -464,7 +464,7 @@
             // Date_3
             // 
             this.Date_3.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Date_3.Location = new System.Drawing.Point(54, 85);
+            this.Date_3.Location = new System.Drawing.Point(54, 86);
             this.Date_3.Margin = new System.Windows.Forms.Padding(2);
             this.Date_3.Name = "Date_3";
             this.Date_3.Size = new System.Drawing.Size(168, 30);
@@ -484,7 +484,7 @@
             // Log_2
             // 
             this.Log_2.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Log_2.Location = new System.Drawing.Point(227, 53);
+            this.Log_2.Location = new System.Drawing.Point(227, 54);
             this.Log_2.Margin = new System.Windows.Forms.Padding(2);
             this.Log_2.Name = "Log_2";
             this.Log_2.Size = new System.Drawing.Size(356, 30);
@@ -493,7 +493,7 @@
             // Date_2
             // 
             this.Date_2.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Date_2.Location = new System.Drawing.Point(54, 53);
+            this.Date_2.Location = new System.Drawing.Point(54, 54);
             this.Date_2.Margin = new System.Windows.Forms.Padding(2);
             this.Date_2.Name = "Date_2";
             this.Date_2.Size = new System.Drawing.Size(168, 30);
@@ -533,7 +533,7 @@
             // CSV_Data_DEL
             // 
             this.CSV_Data_DEL.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CSV_Data_DEL.Location = new System.Drawing.Point(599, 655);
+            this.CSV_Data_DEL.Location = new System.Drawing.Point(599, 669);
             this.CSV_Data_DEL.Margin = new System.Windows.Forms.Padding(2);
             this.CSV_Data_DEL.Name = "CSV_Data_DEL";
             this.CSV_Data_DEL.Size = new System.Drawing.Size(157, 35);
@@ -545,7 +545,7 @@
             // Company_URI
             // 
             this.Company_URI.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.Company_URI.Location = new System.Drawing.Point(268, 70);
+            this.Company_URI.Location = new System.Drawing.Point(268, 76);
             this.Company_URI.Margin = new System.Windows.Forms.Padding(2);
             this.Company_URI.Name = "Company_URI";
             this.Company_URI.Size = new System.Drawing.Size(489, 30);
@@ -555,7 +555,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(193, 72);
+            this.label1.Location = new System.Drawing.Point(193, 74);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 23);
@@ -565,8 +565,8 @@
             // User_Note
             // 
             this.User_Note.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.User_Note.Location = new System.Drawing.Point(166, 518);
-            this.User_Note.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.User_Note.Location = new System.Drawing.Point(166, 532);
+            this.User_Note.Margin = new System.Windows.Forms.Padding(2);
             this.User_Note.Multiline = true;
             this.User_Note.Name = "User_Note";
             this.User_Note.Size = new System.Drawing.Size(591, 133);
@@ -577,7 +577,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(765, 701);
+            this.ClientSize = new System.Drawing.Size(765, 717);
             this.Controls.Add(this.User_Note);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Company_URI);
