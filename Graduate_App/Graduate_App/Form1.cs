@@ -7,6 +7,16 @@ namespace Graduate_App
 {
     public partial class Form1 : Form
     {
+        /*
+         * 変数情報
+         * 
+         * 変数名: CSV_SAVE_DATA
+         * 型: string型配列
+         * 格納情報: .csvに格納されている情報を文字列変換し、レコード毎に格納
+         * 
+         * 変数名: Date_Portal
+         * 型: DateTimePicker[] (Windows.Form.DateTimePicker)
+         */
         static public string[] CSV_SAVE_DATA;
         DateTimePicker[] Date_Portal = new DateTimePicker[10];
         TextBox[] Log_Portal = new TextBox[10];
@@ -218,13 +228,12 @@ namespace Graduate_App
             }
             catch (Exception neko)
             {
-                MessageBox.Show(MethodBase.GetCurrentMethod().Name + "\n" + neko.ToString());
             }
         }
 
         private void CSV_Data_DEL_Click(object sender, EventArgs e)
         {
-            DialogResult Ques = MessageBox.Show("情報を" + CSV_Data_DEL.Text + "します。\nよろしいですか?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult Ques = MessageBox.Show("入力されたを" + CSV_Data_DEL.Text + "します。\nよろしいですか?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (Ques == DialogResult.Yes)
             {
                 if (List_Comp.SelectedIndex == 0)

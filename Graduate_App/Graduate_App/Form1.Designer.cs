@@ -94,7 +94,7 @@
             // CSV_Data_ADD
             // 
             this.CSV_Data_ADD.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CSV_Data_ADD.Location = new System.Drawing.Point(161, 691);
+            this.CSV_Data_ADD.Location = new System.Drawing.Point(161, 692);
             this.CSV_Data_ADD.Margin = new System.Windows.Forms.Padding(2);
             this.CSV_Data_ADD.Name = "CSV_Data_ADD";
             this.CSV_Data_ADD.Size = new System.Drawing.Size(157, 35);
@@ -533,7 +533,7 @@
             // CSV_Data_DEL
             // 
             this.CSV_Data_DEL.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CSV_Data_DEL.Location = new System.Drawing.Point(595, 691);
+            this.CSV_Data_DEL.Location = new System.Drawing.Point(600, 692);
             this.CSV_Data_DEL.Margin = new System.Windows.Forms.Padding(2);
             this.CSV_Data_DEL.Name = "CSV_Data_DEL";
             this.CSV_Data_DEL.Size = new System.Drawing.Size(157, 35);
@@ -565,7 +565,7 @@
             // User_Note
             // 
             this.User_Note.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.User_Note.Location = new System.Drawing.Point(161, 554);
+            this.User_Note.Location = new System.Drawing.Point(166, 554);
             this.User_Note.Margin = new System.Windows.Forms.Padding(2);
             this.User_Note.Multiline = true;
             this.User_Note.Name = "User_Note";

@@ -42,7 +42,6 @@ namespace Graduate_App
             }
             catch (Exception neko)
             {
-                MessageBox.Show(MethodBase.GetCurrentMethod().Name + "\n" + neko.ToString());
                 return null;
             }
         }
