@@ -73,7 +73,7 @@
             this.Company_URI = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.User_Note = new System.Windows.Forms.TextBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.label2 = new System.Windows.Forms.Label();
             this.group_status.SuspendLayout();
             this.group_log.SuspendLayout();
             this.SuspendLayout();
@@ -88,14 +88,14 @@
             this.List_Comp.Location = new System.Drawing.Point(12, 12);
             this.List_Comp.Margin = new System.Windows.Forms.Padding(2);
             this.List_Comp.Name = "List_Comp";
-            this.List_Comp.Size = new System.Drawing.Size(176, 844);
+            this.List_Comp.Size = new System.Drawing.Size(176, 900);
             this.List_Comp.TabIndex = 0;
             this.List_Comp.SelectedIndexChanged += new System.EventHandler(this.List_SelectedIndexChanged);
             // 
             // CSV_Data_ADD
             // 
             this.CSV_Data_ADD.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CSV_Data_ADD.Location = new System.Drawing.Point(193, 830);
+            this.CSV_Data_ADD.Location = new System.Drawing.Point(199, 870);
             this.CSV_Data_ADD.Margin = new System.Windows.Forms.Padding(2);
             this.CSV_Data_ADD.Name = "CSV_Data_ADD";
             this.CSV_Data_ADD.Size = new System.Drawing.Size(188, 42);
@@ -231,7 +231,6 @@
             this.group_log.Controls.Add(this.label4);
             this.group_log.Controls.Add(this.Log_1);
             this.group_log.Controls.Add(this.label3);
-            this.group_log.Controls.Add(this.menuStrip1);
             this.group_log.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.group_log.Location = new System.Drawing.Point(199, 206);
             this.group_log.Margin = new System.Windows.Forms.Padding(2);
@@ -535,7 +534,7 @@
             // CSV_Data_DEL
             // 
             this.CSV_Data_DEL.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.CSV_Data_DEL.Location = new System.Drawing.Point(720, 830);
+            this.CSV_Data_DEL.Location = new System.Drawing.Point(719, 866);
             this.CSV_Data_DEL.Margin = new System.Windows.Forms.Padding(2);
             this.CSV_Data_DEL.Name = "CSV_Data_DEL";
             this.CSV_Data_DEL.Size = new System.Drawing.Size(188, 42);
@@ -567,28 +566,30 @@
             // User_Note
             // 
             this.User_Note.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.User_Note.Location = new System.Drawing.Point(199, 665);
+            this.User_Note.Location = new System.Drawing.Point(199, 692);
             this.User_Note.Margin = new System.Windows.Forms.Padding(2);
             this.User_Note.Multiline = true;
             this.User_Note.Name = "User_Note";
             this.User_Note.Size = new System.Drawing.Size(708, 159);
             this.User_Note.TabIndex = 39;
-            this.User_Note.Text = "メモ";
             // 
-            // menuStrip1
+            // label2
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Location = new System.Drawing.Point(2, 29);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(704, 32);
-            this.menuStrip1.TabIndex = 38;
-            this.menuStrip1.Text = "menuStrip1";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label2.Location = new System.Drawing.Point(204, 662);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 28);
+            this.label2.TabIndex = 40;
+            this.label2.Text = "メモ";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(918, 883);
+            this.ClientSize = new System.Drawing.Size(918, 919);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.User_Note);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Company_URI);
@@ -601,7 +602,6 @@
             this.Controls.Add(this.Company_Name);
             this.Controls.Add(this.List_Comp);
             this.Controls.Add(this.CSV_Data_ADD);
-            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "Form1";
@@ -663,7 +663,7 @@
         private System.Windows.Forms.TextBox Company_URI;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox User_Note;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

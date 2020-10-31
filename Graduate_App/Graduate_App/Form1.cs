@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Windows.Forms;
 
 namespace Graduate_App
@@ -11,16 +10,17 @@ namespace Graduate_App
          * 変数情報
          * 
          * 変数名: CSV_SAVE_DATA
-         * 型: string型配列
+         * 型: System.String型配列
          * 格納情報: .csvに格納されている情報を文字列変換し、レコード毎に格納
          * 
          * 変数名: Date_Portal
          * 型: DateTimePicker[] (Windows.Form.DateTimePicker)
          */
         static public string[] CSV_SAVE_DATA;
-        DateTimePicker[] Date_Portal = new DateTimePicker[10];
-        TextBox[] Log_Portal = new TextBox[10];
-        CSV_Access CSV = new CSV_Access();
+        readonly DateTimePicker[] Date_Portal = new DateTimePicker[10];
+        readonly TextBox[] Log_Portal = new TextBox[10];
+        readonly CSV_Access CSV = new CSV_Access();
+        string[] Operation_Contents = new string[25];
         public Form1()
         {
             SetProcessDPIAware();
@@ -53,187 +53,149 @@ namespace Graduate_App
         {
             try
             {
-                List_Comp.SelectedIndex = 0;
                 if (CSV_SAVE_DATA.Length != 1)
-                {
                     Add_List();
-                }
             }
-            catch (NullReferenceException)
+            catch (Exception)
             {
-                MessageBox.Show("CSVファイルが見つからないか、安らかの問題が発生しているため、アプリケーションを終了します。", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                // DEBUG
-                Close();
-            }
-            catch (Exception neko)
-            {
-                MessageBox.Show(MethodBase.GetCurrentMethod().Name + "\n" + neko.ToString());
+                MessageBox.Show("CSVファイルが見つからないか、なんらかの問題が発生しているため、アプリケーションを終了します。"
+                    , "Error"
+                    , MessageBoxButtons.OK
+                    , MessageBoxIcon.Error);
                 Close();
             }
         }
         private void CSV_Data_ADD_Clicked(object sender, EventArgs e)
         {
-            try
+            Operation_Contents[0] = Company_Name.Text;
+            Operation_Contents[1] = Service_Name.Text;
+            Operation_Contents[2] = Company_URI.Text;
+            if (Log_Doing.Checked)
+                Operation_Contents[3] = "1";
+            else if (Log_UnOfficial.Checked)
+                Operation_Contents[3] = "2";
+            else if (Log_Decline.Checked)
+                Operation_Contents[3] = "3";
+            int Contents_Index = 4;
+            for (int index = 0; index < 10; index++)
             {
-                string[] New_Contents = new string[26];
-                New_Contents[1] = Company_Name.Text;
-                New_Contents[2] = Service_Name.Text;
-                New_Contents[3] = Company_URI.Text;
-                if (Log_Doing.Checked)
-                    New_Contents[4] = "1";
-                else if (Log_UnOfficial.Checked)
-                    New_Contents[4] = "2";
-                else if (Log_Decline.Checked)
-                    New_Contents[4] = "3";
-                int Contents_Index = 5;
-                for (int index = 0; index < 10; index++)
+                if (Log_Portal[index].Text != "")
                 {
-                    if (Log_Portal[index].Text != "")
-                    {
-                        New_Contents[Contents_Index] = (Date_Portal[index].Value.ToShortDateString());
-                        New_Contents[Contents_Index + 1] = Log_Portal[index].Text;
-                    }
-                    Contents_Index = Contents_Index + 2;
+                    Operation_Contents[Contents_Index] = (Date_Portal[index].Value.ToShortDateString());
+                    Operation_Contents[Contents_Index + 1] = Log_Portal[index].Text;
                 }
-                if (User_Note.Text.Contains(Environment.NewLine))
-                    New_Contents[25] = User_Note.Text.Replace(Environment.NewLine, "   ");
-                else
-                    New_Contents[25] = User_Note.Text;
-                if (Company_Name.Text == "" || Service_Name.Text == "" || Log_Portal[0].Text == "")
-                {
-                    string Error_String = "";
-                    if (Company_Name.Text == "")
-                    {
-                        Error_String = "\"企業名\"";
-                    }
-                    if (Service_Name.Text == "")
-                    {
-                        if (Company_Name.Text == "")
-                            Error_String = Error_String + ", \"利用サービス名\"";
-                        else
-                            Error_String = "\"利用サービス名\"";
-                    }
-                    if (Log_Portal[0].Text == "")
-                    {
-                        if (Company_Name.Text == "" || Service_Name.Text == "")
-                            Error_String = Error_String + ", \"活動履歴No.1\"";
-                        else
-                            Error_String = "\"活動履歴No.1\"";
-                    }
-                    MessageBox.Show(Error_String + "が入力されていません\n上記項目を入力し、もう一度\"" + CSV_Data_ADD.Text + "\"ボタンをクリックしてください。");
-                }
-                else
-                {
-                    string[] Before_CSV_SAVE_DATA = CSV_SAVE_DATA;
-                    if (List_Comp.SelectedIndex == 0)
-                    {
-                        Array.Resize(ref CSV_SAVE_DATA, CSV_SAVE_DATA.Length + 1);
-                        New_Contents[0] = (CSV_SAVE_DATA.Length - 1).ToString();
-                        List_Comp.Items.Add(Company_Name.Text);
-                        CSV_SAVE_DATA[int.Parse(New_Contents[0])] = string.Join(",", New_Contents);
-                        bool success = CSV.Save_ALL(CSV_SAVE_DATA);
-                        if (success)
-                        {
-                            MessageBox.Show("新規登録しました\n企業名: " + Company_Name.Text, "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            Component_Reset();
-                        }
-                        else
-                        {
-                            CSV_SAVE_DATA = Before_CSV_SAVE_DATA;
-                            List_Comp.Items.RemoveAt(List_Comp.Items.Count - 1);
-                        }
-                    }
-                    else
-                    {
-                        int Insert_Index = List_Comp.SelectedIndex;
-                        New_Contents[0] = (List_Comp.SelectedIndex).ToString();
-                        List_Comp.Items.Insert(Insert_Index, Company_Name.Text);
-                        List_Comp.SelectedIndex = 0;
-                        List_Comp.Items.RemoveAt(Insert_Index + 1);
-                        List_Comp.SelectedIndex = Insert_Index;
-                        CSV_SAVE_DATA[int.Parse(New_Contents[0])] = string.Join(",", New_Contents);
-                        bool success = CSV.Save_ALL(CSV_SAVE_DATA);
-                        if (success)
-                            MessageBox.Show("上書き保存しました\n企業名: " + Company_Name.Text, "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        else
-                        {
-                            for (int Item = 1; Item < List_Comp.Items.Count; Item++)
-                            {
-                                List_Comp.Items.RemoveAt(Item);
-                            }
-                            CSV_SAVE_DATA = Before_CSV_SAVE_DATA;
-                            Add_List();
-                            List_Comp.SelectedIndex = Insert_Index;
-                        }
-                    }
-                }
+                Contents_Index += 2;
             }
-            catch (Exception neko)
+            if (User_Note.Text.Contains(Environment.NewLine))
+                Operation_Contents[24] = User_Note.Text.Replace(Environment.NewLine, " | ");
+            else
+                Operation_Contents[24] = User_Note.Text;
+
+            //必須項目の空白チェック
+            if (Company_Name.Text == "" || Service_Name.Text == "" || Log_Portal[0].Text == "")
             {
-                MessageBox.Show(MethodBase.GetCurrentMethod().Name + "\n" + neko.ToString());
+                string Error_String = "";
+                if (Company_Name.Text == "")
+                    Error_String = "\"企業名\"";
+                if (Service_Name.Text == "")
+                {
+                    if (Company_Name.Text == "")
+                        Error_String += ", \"利用サービス名\"";
+                    else
+                        Error_String = "\"利用サービス名\"";
+                }
+                if (Log_Portal[0].Text == "")
+                {
+                    if (Company_Name.Text == "" || Service_Name.Text == "")
+                        Error_String += ", \"活動履歴No.1\"";
+                    else
+                        Error_String = "\"活動履歴No.1\"";
+                }
+                MessageBox.Show(Error_String + "が入力されていません\n上記項目を入力し、もう一度\"" + CSV_Data_ADD.Text + "\"ボタンをクリックしてください。");
+            }
+
+            //空白無し
+            else
+            {
+                if (List_Comp.SelectedIndex == 0)
+                {
+                    Array.Resize(ref CSV_SAVE_DATA, CSV_SAVE_DATA.Length + 1);
+                    CSV_SAVE_DATA[CSV_SAVE_DATA.Length - 1] = string.Join(",", Operation_Contents);
+                    CSV.Save_ALL(CSV_SAVE_DATA, false);
+                    List_Comp.Items.Add(Company_Name.Text);
+                    MessageBox.Show("新規登録しました\n企業名: " + Company_Name.Text, "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Component_Reset();
+                }
+                else
+                {
+                    CSV_SAVE_DATA[List_Comp.SelectedIndex] = string.Join(",", Operation_Contents);
+                    CSV.Save_ALL(CSV_SAVE_DATA, false);
+                    List_Comp.Items.Insert(List_Comp.SelectedIndex, Company_Name.Text);
+                    List_Comp.SelectedIndex--;
+                    List_Comp.Items.RemoveAt(List_Comp.SelectedIndex + 1);
+                    MessageBox.Show("上書き保存しました\n企業名: " + Company_Name.Text, "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
         private void List_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
+            if (List_Comp.SelectedIndex > CSV_SAVE_DATA.Length - 1 || List_Comp.SelectedIndex < 0)
             {
-                if (List_Comp.SelectedIndex == 0)
-                {
-                    Component_Reset();
-                    CSV_Data_ADD.Text = "追加";
-                    CSV_Data_DEL.Text = "クリア";
-                }
-                else
-                {
-                    CSV_Data_ADD.Text = "上書保存";
-                    CSV_Data_DEL.Text = "削除";
-                    string[] Insert_Data = CSV.Load_LINE(CSV_SAVE_DATA, List_Comp.SelectedIndex);
-                    Company_Name.Text = Insert_Data[1];
-                    Service_Name.Text = Insert_Data[2];
-                    Company_URI.Text = Insert_Data[3];
-                    switch (Insert_Data[4])
-                    {
-                        case "1":
-                            Log_Doing.Checked = true;
-                            break;
-                        case "2":
-                            Log_UnOfficial.Checked = true;
-                            break;
-                        case "3":
-                            Log_Decline.Checked = true;
-                            break;
-                        default:
-                            Log_Doing.Checked = true;
-                            break;
-                    }
-                    int CSV_index = 5;
-                    for (int index = 0; index < 10; index++)
-                    {
-                        if (Insert_Data[CSV_index + 1] != "")
-                        {
-                            Date_Portal[index].Value = DateTime.Parse(Insert_Data[CSV_index]);
-                            Log_Portal[index].Text = Insert_Data[CSV_index + 1];
-                        }
-                        else
-                        {
-                            Date_Portal[index].Value = DateTime.Now;
-                            Log_Portal[index].Text = "";
-                        }
-                        CSV_index = CSV_index + 2;
-                    }
-                    if (Insert_Data[25].Contains("   "))
-                        Insert_Data[25] = Insert_Data[25].Replace("   ", Environment.NewLine);
-                    User_Note.Text = Insert_Data[25];
-                }
+                List_Comp.SelectedIndex = CSV_SAVE_DATA.Length - 1;
             }
-            catch (Exception neko)
+            if (List_Comp.SelectedIndex == 0)
             {
+                Component_Reset();
+                CSV_Data_ADD.Text = "追加";
+                CSV_Data_DEL.Text = "クリア";
             }
-        }
+            else
+            {
+                CSV_Data_ADD.Text = "上書保存";
+                CSV_Data_DEL.Text = "削除";
+                Operation_Contents = CSV.Load_LINE(CSV_SAVE_DATA, List_Comp.SelectedIndex);
+                Company_Name.Text = Operation_Contents[0];
+                Service_Name.Text = Operation_Contents[1];
+                Company_URI.Text = Operation_Contents[2];
+                switch (Operation_Contents[3])
+                {
+                    case "1":
+                        Log_Doing.Checked = true;
+                        break;
+                    case "2":
+                        Log_UnOfficial.Checked = true;
+                        break;
+                    case "3":
+                        Log_Decline.Checked = true;
+                        break;
+                    default:
+                        Log_Doing.Checked = true;
+                        break;
+                }
+                int CSV_index = 4;
+                for (int index = 0; index < 10; index++)
+                {
+                    if (Operation_Contents[CSV_index + 1] != "")
+                    {
+                        Date_Portal[index].Value = DateTime.Parse(Operation_Contents[CSV_index]);
+                        Log_Portal[index].Text = Operation_Contents[CSV_index + 1];
+                    }
+                    else
+                    {
+                        Date_Portal[index].Value = DateTime.Now;
+                        Log_Portal[index].Text = "";
+                    }
+                    CSV_index += 2;
+                }
+                if (Operation_Contents[24].Contains(" | "))
+                    Operation_Contents[24] = Operation_Contents[24].Replace(" | ", Environment.NewLine);
+                User_Note.Text = Operation_Contents[24];
+            }
 
+        }
         private void CSV_Data_DEL_Click(object sender, EventArgs e)
         {
-            DialogResult Ques = MessageBox.Show("入力されたを" + CSV_Data_DEL.Text + "します。\nよろしいですか?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult Ques = MessageBox.Show("情報を" + CSV_Data_DEL.Text + "します。\nよろしいですか?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (Ques == DialogResult.Yes)
             {
                 if (List_Comp.SelectedIndex == 0)
@@ -245,16 +207,9 @@ namespace Graduate_App
                     list.AddRange(CSV_SAVE_DATA);
                     list.Remove(CSV_SAVE_DATA[List_Comp.SelectedIndex]);
                     CSV_SAVE_DATA = list.ToArray();
-                    for (int index = List_Comp.SelectedIndex; index < CSV_SAVE_DATA.Length; index++)
-                    {
-                        string[] Before_Array = CSV.Load_LINE(CSV_SAVE_DATA, index);
-                        int Before_ID = int.Parse(Before_Array[0]) - 1;
-                        Before_Array[0] = Before_ID.ToString();
-                        CSV_SAVE_DATA[index] = string.Join(",", Before_Array);
-                    }
-                    List_Comp.SelectedIndex = List_Comp.SelectedIndex - 1;
+                    List_Comp.SelectedIndex -= 1;
                     List_Comp.Items.RemoveAt(delete_id);
-                    CSV.Save_ALL(CSV_SAVE_DATA);
+                    CSV.Save_ALL(CSV_SAVE_DATA, false);
                 }
                 MessageBox.Show("情報を" + CSV_Data_DEL.Text + "しました。", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -272,15 +227,13 @@ namespace Graduate_App
                 Log_Portal[index].Text = "";
                 index++;
             }
-            User_Note.Text = "メモ";
         }
-
         public void Add_List()
         {
             for (int line = 1; line < CSV_SAVE_DATA.Length; line++)
             {
                 string[] CSV_DATA_LINE = CSV.Load_LINE(CSV_SAVE_DATA, line);
-                List_Comp.Items.Add(CSV_DATA_LINE[1]);
+                List_Comp.Items.Add(CSV_DATA_LINE[0]);
             }
         }
     }

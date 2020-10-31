@@ -8,48 +8,37 @@ namespace Graduate_App
 {
     public class CSV_Access
     {
-        string[] Header = { "id,name,service,url,status,date_1,log_1,date_2,log_2,date_3,log_3,date_4,log_4,date_5,log_5,date_6,log_6,date_7,log_7,date_8,log_8,date_9,log_9,date_10,log_10,memo" };
+        const string Header = "id,name,service,url,status,date_1,log_1,date_2,log_2,date_3,log_3,date_4,log_4,date_5,log_5,date_6,log_6,date_7,log_7,date_8,log_8,date_9,log_9,date_10,log_10,memo";
+        readonly string PATH = Application.ExecutablePath.Substring(0, (Application.ExecutablePath).LastIndexOf(@"\"));
         public void Load_ALL()
         {
             try
             {
-                Form1.CSV_SAVE_DATA = File.ReadAllLines("就職活動履歴.csv", Encoding.GetEncoding("UTF-8"));
-            }
-            catch (FileNotFoundException)
-            {
-                bool Create = Create_CSV_File(Header);
-                if (Create)
-                {
-                    MessageBox.Show("ファイル作ったやで(＾ω＾）");
-                    Form1.CSV_SAVE_DATA = File.ReadAllLines("就職活動履歴.csv", Encoding.GetEncoding("UTF-8"));
-                }
+                Check_CSV();
+                Form1.CSV_SAVE_DATA = File.ReadAllLines(PATH + @"\Files\就職活動履歴.csv", Encoding.GetEncoding("UTF-8"));
             }
             catch (IOException)
             {
-                MessageBox.Show("別のアプリケーションによってCSVファイルが開かれているなどの理由により、正常に起動が行えませんでした\n起動しているプログラムを確認し、もう一度起動してください", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception neko)
-            {
-                MessageBox.Show(MethodBase.GetCurrentMethod().Name + "\n" + neko.ToString());
+                MessageBox.Show("別のアプリケーションによってCSVファイルが開かれているなどの理由により、正常に起動できませんでした\n"
+                    + "起動しているプログラムを確認し、もう一度起動してください"
+                    , "Error"
+                    , MessageBoxButtons.OK
+                    , MessageBoxIcon.Error);
+                Environment.Exit(0);
             }
         }
         public string[] Load_LINE(string[] CSV_SAVE_DATA, int LINE_NO)
         {
-            try
-            {
-                string[] LOAD_DATA_LINES = CSV_SAVE_DATA[LINE_NO].Split(',');
-                return LOAD_DATA_LINES;
-            }
-            catch (Exception neko)
-            {
-                return null;
-            }
+            string[] LOAD_DATA_LINES = CSV_SAVE_DATA[LINE_NO].Split(',');
+            return LOAD_DATA_LINES;
         }
-        public bool Save_ALL(string[] CSV_SAVE_DATA)
+        public bool Save_ALL(string[] CSV_SAVE_DATA, bool Initial_Start)
         {
             try
             {
-                StreamWriter Writing_File = new StreamWriter("就職活動履歴.csv", false, Encoding.UTF8);
+                if(Initial_Start == false)
+                    Check_CSV();
+                StreamWriter Writing_File = new StreamWriter(PATH + @"\Files\就職活動履歴.csv", false, Encoding.UTF8);
                 for (int index = 0; index < CSV_SAVE_DATA.Length; index++)
                 {
                     string Save_Line = string.Join(",", CSV_SAVE_DATA[index]);
@@ -63,29 +52,52 @@ namespace Graduate_App
                 MessageBox.Show("別のアプリケーションによってCSVファイルが開かれているなどの理由により、正常に保存できませんでした\n起動しているプログラムを確認し、もう一度保存してください", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            catch (Exception neko)
-            {
-                MessageBox.Show(MethodBase.GetCurrentMethod().Name + "\n" + neko.ToString());
-                return false;
-            }
         }
-        public bool Create_CSV_File(string[] CSV_SAVE_DATA)
+        public void Check_CSV()
         {
-            try
+            Console.WriteLine(PATH);
+            if (Directory.Exists(PATH + @"\Files") == false)
             {
-                DialogResult Response = MessageBox.Show("起動に必要なCSVファイルが見つかりませんでした\nCSVファイルを作成しますか？", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (Response == DialogResult.Yes)
+                DialogResult check = MessageBox.Show("データを保存するフォルダが存在しません。\n作成しますか？"
+                    , "Question"
+                    , MessageBoxButtons.YesNo, MessageBoxIcon.Question
+                    , MessageBoxDefaultButton.Button1);
+                if (check == DialogResult.Yes)
                 {
-                    Save_ALL(CSV_SAVE_DATA);
-                    return true;
+                    Directory.CreateDirectory("Files");
+                    string[] header_first = { Header };
+                    Save_ALL(header_first, true);
+                    MessageBox.Show("作成完了しました\nフォルダパス: " + PATH + @"\Files\就職活動履歴.csv");
+                    Check_CSV();
                 }
                 else
-                    return false;
+                {
+                    MessageBox.Show("データを保存するフォルダが見つからないため、アプリケーションを終了します。");
+                    Environment.Exit(0);
+                }
             }
-            catch (Exception neko)
+            else
             {
-                MessageBox.Show(MethodBase.GetCurrentMethod().Name + "\n" + neko.ToString());
-                return false;
+                if (File.Exists(PATH + @"\Files\就職活動履歴.csv") == false)
+                {
+                    DialogResult check = MessageBox.Show("データを保存するファイルが存在しません。\n作成しますか？"
+                        , "Question"
+                        , MessageBoxButtons.YesNo
+                        , MessageBoxIcon.Question
+                        , MessageBoxDefaultButton.Button1);
+                    if (check == DialogResult.Yes)
+                    {
+                        string[] header_first = { Header };
+                        Save_ALL(header_first, true);
+                        MessageBox.Show("作成完了しました\nファイルパス: " + PATH + @"\Files\就職活動履歴.csv");
+                        Check_CSV();
+                    }
+                    else
+                    {
+                        MessageBox.Show("データを保存するファイルが見つからないため、アプリケーションを終了します。");
+                        Environment.Exit(0);
+                    }
+                }
             }
         }
     }
