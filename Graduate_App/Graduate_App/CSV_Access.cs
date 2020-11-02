@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+ * This source code has been written by a student of Hokkaido Information University.
+ * The author is not responsible for any problems that may arise from the use of this software.
+ * 
+ * Copyright (c) 2020 Yuuki Sakaguchi
+ * Released under the MIT license.
+ * https://opensource.org/licenses/mit-license.php
+ */
+
+using System;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -8,6 +17,14 @@ namespace Graduate_App
 {
     public class CSV_Access
     {
+        /*
+         * Global Variable Information
+         * 
+         * Variable Name:
+         * Type:
+         * Protection Level: 
+         * Data Information: 
+         */
         const string Header = "id,name,service,url,status,date_1,log_1,date_2,log_2,date_3,log_3,date_4,log_4,date_5,log_5,date_6,log_6,date_7,log_7,date_8,log_8,date_9,log_9,date_10,log_10,memo";
         readonly string PATH = Application.ExecutablePath.Substring(0, (Application.ExecutablePath).LastIndexOf(@"\"));
         public void Load_ALL()
@@ -15,7 +32,7 @@ namespace Graduate_App
             try
             {
                 Check_CSV();
-                Form1.CSV_SAVE_DATA = File.ReadAllLines(PATH + @"\Files\就職活動履歴.csv", Encoding.GetEncoding("UTF-8"));
+                Form.CSV_SAVE_DATA = File.ReadAllLines(PATH + @"\Files\就職活動履歴.csv", Encoding.GetEncoding("UTF-8"));
             }
             catch (IOException)
             {

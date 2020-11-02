@@ -1,6 +1,6 @@
 ﻿namespace Graduate_App
 {
-    partial class Form1
+    partial class Form
     {
         /// <summary>
         /// 必要なデザイナー変数です。
