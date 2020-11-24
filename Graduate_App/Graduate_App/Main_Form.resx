@@ -1,0 +1,1542 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="List_Comp.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="List_Comp.ItemHeight" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="List_Comp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="List_Comp.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="List_Comp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 984</value>
+  </data>
+  <data name="List_Comp.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;List_Comp.Name" xml:space="preserve">
+    <value>List_Comp</value>
+  </data>
+  <data name="&gt;&gt;List_Comp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;List_Comp.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;List_Comp.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="CSV_Data_ADD.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="CSV_Data_ADD.Location" type="System.Drawing.Point, System.Drawing">
+    <value>199, 954</value>
+  </data>
+  <data name="CSV_Data_ADD.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="CSV_Data_ADD.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 42</value>
+  </data>
+  <data name="CSV_Data_ADD.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="CSV_Data_ADD.Text" xml:space="preserve">
+    <value>登録</value>
+  </data>
+  <data name="&gt;&gt;CSV_Data_ADD.Name" xml:space="preserve">
+    <value>CSV_Data_ADD</value>
+  </data>
+  <data name="&gt;&gt;CSV_Data_ADD.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CSV_Data_ADD.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;CSV_Data_ADD.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="Company_Name.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Company_Name.Location" type="System.Drawing.Point, System.Drawing">
+    <value>199, 44</value>
+  </data>
+  <data name="Company_Name.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Company_Name.Size" type="System.Drawing.Size, System.Drawing">
+    <value>708, 34</value>
+  </data>
+  <data name="Company_Name.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;Company_Name.Name" xml:space="preserve">
+    <value>Company_Name</value>
+  </data>
+  <data name="&gt;&gt;Company_Name.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Company_Name.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Company_Name.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="corp_name.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="corp_name.Location" type="System.Drawing.Point, System.Drawing">
+    <value>194, 12</value>
+  </data>
+  <data name="corp_name.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="corp_name.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 28</value>
+  </data>
+  <data name="corp_name.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="corp_name.Text" xml:space="preserve">
+    <value>Company Name</value>
+  </data>
+  <data name="&gt;&gt;corp_name.Name" xml:space="preserve">
+    <value>corp_name</value>
+  </data>
+  <data name="&gt;&gt;corp_name.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;corp_name.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;corp_name.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="service.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="service.Location" type="System.Drawing.Point, System.Drawing">
+    <value>194, 80</value>
+  </data>
+  <data name="service.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="service.Size" type="System.Drawing.Size, System.Drawing">
+    <value>154, 28</value>
+  </data>
+  <data name="service.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="service.Text" xml:space="preserve">
+    <value>Name of Service</value>
+  </data>
+  <data name="&gt;&gt;service.Name" xml:space="preserve">
+    <value>service</value>
+  </data>
+  <data name="&gt;&gt;service.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;service.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;service.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="Service_Name.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Service_Name.Location" type="System.Drawing.Point, System.Drawing">
+    <value>199, 110</value>
+  </data>
+  <data name="Service_Name.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Service_Name.Size" type="System.Drawing.Size, System.Drawing">
+    <value>708, 34</value>
+  </data>
+  <data name="Service_Name.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;Service_Name.Name" xml:space="preserve">
+    <value>Service_Name</value>
+  </data>
+  <data name="&gt;&gt;Service_Name.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Service_Name.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Service_Name.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="Log_Doing.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Log_Doing.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Log_Doing.Location" type="System.Drawing.Point, System.Drawing">
+    <value>48, 31</value>
+  </data>
+  <data name="Log_Doing.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Log_Doing.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 32</value>
+  </data>
+  <data name="Log_Doing.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="Log_Doing.Text" xml:space="preserve">
+    <value>活動中</value>
+  </data>
+  <data name="&gt;&gt;Log_Doing.Name" xml:space="preserve">
+    <value>Log_Doing</value>
+  </data>
+  <data name="&gt;&gt;Log_Doing.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Log_Doing.Parent" xml:space="preserve">
+    <value>group_status</value>
+  </data>
+  <data name="&gt;&gt;Log_Doing.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Log_UnOfficial.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Log_UnOfficial.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Log_UnOfficial.Location" type="System.Drawing.Point, System.Drawing">
+    <value>290, 31</value>
+  </data>
+  <data name="Log_UnOfficial.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Log_UnOfficial.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 32</value>
+  </data>
+  <data name="Log_UnOfficial.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="Log_UnOfficial.Text" xml:space="preserve">
+    <value>内定獲得</value>
+  </data>
+  <data name="&gt;&gt;Log_UnOfficial.Name" xml:space="preserve">
+    <value>Log_UnOfficial</value>
+  </data>
+  <data name="&gt;&gt;Log_UnOfficial.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Log_UnOfficial.Parent" xml:space="preserve">
+    <value>group_status</value>
+  </data>
+  <data name="&gt;&gt;Log_UnOfficial.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Log_Decline.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Log_Decline.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Log_Decline.Location" type="System.Drawing.Point, System.Drawing">
+    <value>556, 31</value>
+  </data>
+  <data name="Log_Decline.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Log_Decline.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 32</value>
+  </data>
+  <data name="Log_Decline.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="Log_Decline.Text" xml:space="preserve">
+    <value>辞退等</value>
+  </data>
+  <data name="&gt;&gt;Log_Decline.Name" xml:space="preserve">
+    <value>Log_Decline</value>
+  </data>
+  <data name="&gt;&gt;Log_Decline.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Log_Decline.Parent" xml:space="preserve">
+    <value>group_status</value>
+  </data>
+  <data name="&gt;&gt;Log_Decline.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="group_status.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="group_status.Location" type="System.Drawing.Point, System.Drawing">
+    <value>199, 214</value>
+  </data>
+  <data name="group_status.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="group_status.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="group_status.Size" type="System.Drawing.Size, System.Drawing">
+    <value>708, 70</value>
+  </data>
+  <data name="group_status.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="group_status.Text" xml:space="preserve">
+    <value>ステータス</value>
+  </data>
+  <data name="&gt;&gt;group_status.Name" xml:space="preserve">
+    <value>group_status</value>
+  </data>
+  <data name="&gt;&gt;group_status.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;group_status.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;group_status.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="Date_1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Date_1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 34</value>
+  </data>
+  <data name="Date_1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Date_1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 34</value>
+  </data>
+  <data name="Date_1.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;Date_1.Name" xml:space="preserve">
+    <value>Date_1</value>
+  </data>
+  <data name="&gt;&gt;Date_1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Date_1.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;Date_1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Log_10.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Log_10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>272, 401</value>
+  </data>
+  <data name="Log_10.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Log_10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>426, 34</value>
+  </data>
+  <data name="Log_10.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="&gt;&gt;Log_10.Name" xml:space="preserve">
+    <value>Log_10</value>
+  </data>
+  <data name="&gt;&gt;Log_10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Log_10.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;Log_10.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Date_10.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Date_10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 401</value>
+  </data>
+  <data name="Date_10.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Date_10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 34</value>
+  </data>
+  <data name="Date_10.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="&gt;&gt;Date_10.Name" xml:space="preserve">
+    <value>Date_10</value>
+  </data>
+  <data name="&gt;&gt;Date_10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Date_10.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;Date_10.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label12.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label12.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 9pt</value>
+  </data>
+  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 410</value>
+  </data>
+  <data name="label12.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 25</value>
+  </data>
+  <data name="label12.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="label12.Text" xml:space="preserve">
+    <value>No.10</value>
+  </data>
+  <data name="&gt;&gt;label12.Name" xml:space="preserve">
+    <value>label12</value>
+  </data>
+  <data name="&gt;&gt;label12.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label12.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="Log_9.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Log_9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>272, 360</value>
+  </data>
+  <data name="Log_9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Log_9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>426, 34</value>
+  </data>
+  <data name="Log_9.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="&gt;&gt;Log_9.Name" xml:space="preserve">
+    <value>Log_9</value>
+  </data>
+  <data name="&gt;&gt;Log_9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Log_9.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;Log_9.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="Date_9.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Date_9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 360</value>
+  </data>
+  <data name="Date_9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Date_9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 34</value>
+  </data>
+  <data name="Date_9.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="&gt;&gt;Date_9.Name" xml:space="preserve">
+    <value>Date_9</value>
+  </data>
+  <data name="&gt;&gt;Date_9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Date_9.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;Date_9.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="label11.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label11.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 9pt</value>
+  </data>
+  <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 370</value>
+  </data>
+  <data name="label11.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 25</value>
+  </data>
+  <data name="label11.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="label11.Text" xml:space="preserve">
+    <value>No.9</value>
+  </data>
+  <data name="&gt;&gt;label11.Name" xml:space="preserve">
+    <value>label11</value>
+  </data>
+  <data name="&gt;&gt;label11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label11.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="Log_8.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Log_8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>272, 319</value>
+  </data>
+  <data name="Log_8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Log_8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>426, 34</value>
+  </data>
+  <data name="Log_8.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;Log_8.Name" xml:space="preserve">
+    <value>Log_8</value>
+  </data>
+  <data name="&gt;&gt;Log_8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Log_8.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;Log_8.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="Date_8.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Date_8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 319</value>
+  </data>
+  <data name="Date_8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Date_8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 34</value>
+  </data>
+  <data name="Date_8.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;Date_8.Name" xml:space="preserve">
+    <value>Date_8</value>
+  </data>
+  <data name="&gt;&gt;Date_8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Date_8.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;Date_8.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="label10.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label10.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 9pt</value>
+  </data>
+  <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 329</value>
+  </data>
+  <data name="label10.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 25</value>
+  </data>
+  <data name="label10.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="label10.Text" xml:space="preserve">
+    <value>No.8</value>
+  </data>
+  <data name="&gt;&gt;label10.Name" xml:space="preserve">
+    <value>label10</value>
+  </data>
+  <data name="&gt;&gt;label10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label10.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="Log_7.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Log_7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>272, 278</value>
+  </data>
+  <data name="Log_7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Log_7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>426, 34</value>
+  </data>
+  <data name="Log_7.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="&gt;&gt;Log_7.Name" xml:space="preserve">
+    <value>Log_7</value>
+  </data>
+  <data name="&gt;&gt;Log_7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Log_7.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;Log_7.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="Date_7.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Date_7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 278</value>
+  </data>
+  <data name="Date_7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Date_7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 34</value>
+  </data>
+  <data name="Date_7.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="&gt;&gt;Date_7.Name" xml:space="preserve">
+    <value>Date_7</value>
+  </data>
+  <data name="&gt;&gt;Date_7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Date_7.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;Date_7.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="label9.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label9.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 9pt</value>
+  </data>
+  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 288</value>
+  </data>
+  <data name="label9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 25</value>
+  </data>
+  <data name="label9.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>No.7</value>
+  </data>
+  <data name="&gt;&gt;label9.Name" xml:space="preserve">
+    <value>label9</value>
+  </data>
+  <data name="&gt;&gt;label9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="Log_6.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Log_6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>272, 238</value>
+  </data>
+  <data name="Log_6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Log_6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>426, 34</value>
+  </data>
+  <data name="Log_6.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;Log_6.Name" xml:space="preserve">
+    <value>Log_6</value>
+  </data>
+  <data name="&gt;&gt;Log_6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Log_6.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;Log_6.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="Date_6.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Date_6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 238</value>
+  </data>
+  <data name="Date_6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Date_6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 34</value>
+  </data>
+  <data name="Date_6.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="&gt;&gt;Date_6.Name" xml:space="preserve">
+    <value>Date_6</value>
+  </data>
+  <data name="&gt;&gt;Date_6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Date_6.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;Date_6.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="label8.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label8.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 9pt</value>
+  </data>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 247</value>
+  </data>
+  <data name="label8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 25</value>
+  </data>
+  <data name="label8.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>No.6</value>
+  </data>
+  <data name="&gt;&gt;label8.Name" xml:space="preserve">
+    <value>label8</value>
+  </data>
+  <data name="&gt;&gt;label8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="Log_5.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Log_5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>272, 197</value>
+  </data>
+  <data name="Log_5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Log_5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>426, 34</value>
+  </data>
+  <data name="Log_5.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;Log_5.Name" xml:space="preserve">
+    <value>Log_5</value>
+  </data>
+  <data name="&gt;&gt;Log_5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Log_5.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;Log_5.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="Date_5.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Date_5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 197</value>
+  </data>
+  <data name="Date_5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Date_5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 34</value>
+  </data>
+  <data name="Date_5.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;Date_5.Name" xml:space="preserve">
+    <value>Date_5</value>
+  </data>
+  <data name="&gt;&gt;Date_5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Date_5.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;Date_5.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="label7.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label7.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 9pt</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 206</value>
+  </data>
+  <data name="label7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 25</value>
+  </data>
+  <data name="label7.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>No.5</value>
+  </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="Log_4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Log_4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>272, 156</value>
+  </data>
+  <data name="Log_4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Log_4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>426, 34</value>
+  </data>
+  <data name="Log_4.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;Log_4.Name" xml:space="preserve">
+    <value>Log_4</value>
+  </data>
+  <data name="&gt;&gt;Log_4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Log_4.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;Log_4.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="Date_4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Date_4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 156</value>
+  </data>
+  <data name="Date_4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Date_4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 34</value>
+  </data>
+  <data name="Date_4.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;Date_4.Name" xml:space="preserve">
+    <value>Date_4</value>
+  </data>
+  <data name="&gt;&gt;Date_4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Date_4.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;Date_4.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label6.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 9pt</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 166</value>
+  </data>
+  <data name="label6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 25</value>
+  </data>
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>No.4</value>
+  </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
+  <data name="Log_3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Log_3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>272, 115</value>
+  </data>
+  <data name="Log_3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Log_3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>426, 34</value>
+  </data>
+  <data name="Log_3.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;Log_3.Name" xml:space="preserve">
+    <value>Log_3</value>
+  </data>
+  <data name="&gt;&gt;Log_3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Log_3.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;Log_3.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="Date_3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Date_3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 115</value>
+  </data>
+  <data name="Date_3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Date_3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 34</value>
+  </data>
+  <data name="Date_3.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;Date_3.Name" xml:space="preserve">
+    <value>Date_3</value>
+  </data>
+  <data name="&gt;&gt;Date_3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Date_3.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;Date_3.ZOrder" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label5.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 9pt</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 125</value>
+  </data>
+  <data name="label5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 25</value>
+  </data>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>No.3</value>
+  </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>24</value>
+  </data>
+  <data name="Log_2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Log_2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>272, 74</value>
+  </data>
+  <data name="Log_2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Log_2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>426, 34</value>
+  </data>
+  <data name="Log_2.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;Log_2.Name" xml:space="preserve">
+    <value>Log_2</value>
+  </data>
+  <data name="&gt;&gt;Log_2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Log_2.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;Log_2.ZOrder" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="Date_2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Date_2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 74</value>
+  </data>
+  <data name="Date_2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Date_2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>201, 34</value>
+  </data>
+  <data name="Date_2.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;Date_2.Name" xml:space="preserve">
+    <value>Date_2</value>
+  </data>
+  <data name="&gt;&gt;Date_2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Date_2.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;Date_2.ZOrder" xml:space="preserve">
+    <value>26</value>
+  </data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 9pt</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 84</value>
+  </data>
+  <data name="label4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 25</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>No.2</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>27</value>
+  </data>
+  <data name="Log_1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Log_1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>272, 34</value>
+  </data>
+  <data name="Log_1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Log_1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>426, 34</value>
+  </data>
+  <data name="Log_1.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;Log_1.Name" xml:space="preserve">
+    <value>Log_1</value>
+  </data>
+  <data name="&gt;&gt;Log_1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Log_1.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;Log_1.ZOrder" xml:space="preserve">
+    <value>28</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 9pt</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 43</value>
+  </data>
+  <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 25</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>No.1</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>29</value>
+  </data>
+  <data name="group_log.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="group_log.Location" type="System.Drawing.Point, System.Drawing">
+    <value>199, 288</value>
+  </data>
+  <data name="group_log.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="group_log.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="group_log.Size" type="System.Drawing.Size, System.Drawing">
+    <value>708, 454</value>
+  </data>
+  <data name="group_log.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="group_log.Text" xml:space="preserve">
+    <value>活動履歴</value>
+  </data>
+  <data name="&gt;&gt;group_log.Name" xml:space="preserve">
+    <value>group_log</value>
+  </data>
+  <data name="&gt;&gt;group_log.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;group_log.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;group_log.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="CSV_Data_DEL.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="CSV_Data_DEL.Location" type="System.Drawing.Point, System.Drawing">
+    <value>719, 954</value>
+  </data>
+  <data name="CSV_Data_DEL.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="CSV_Data_DEL.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 42</value>
+  </data>
+  <data name="CSV_Data_DEL.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="CSV_Data_DEL.Text" xml:space="preserve">
+    <value>クリア</value>
+  </data>
+  <data name="&gt;&gt;CSV_Data_DEL.Name" xml:space="preserve">
+    <value>CSV_Data_DEL</value>
+  </data>
+  <data name="&gt;&gt;CSV_Data_DEL.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CSV_Data_DEL.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;CSV_Data_DEL.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="Company_URI.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Company_URI.Location" type="System.Drawing.Point, System.Drawing">
+    <value>199, 176</value>
+  </data>
+  <data name="Company_URI.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Company_URI.Size" type="System.Drawing.Size, System.Drawing">
+    <value>708, 34</value>
+  </data>
+  <data name="Company_URI.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;Company_URI.Name" xml:space="preserve">
+    <value>Company_URI</value>
+  </data>
+  <data name="&gt;&gt;Company_URI.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Company_URI.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Company_URI.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>194, 146</value>
+  </data>
+  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 28</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>URL</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="User_Note.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="User_Note.Location" type="System.Drawing.Point, System.Drawing">
+    <value>199, 774</value>
+  </data>
+  <data name="User_Note.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="User_Note.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="User_Note.Size" type="System.Drawing.Size, System.Drawing">
+    <value>708, 159</value>
+  </data>
+  <data name="User_Note.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="&gt;&gt;User_Note.Name" xml:space="preserve">
+    <value>User_Note</value>
+  </data>
+  <data name="&gt;&gt;User_Note.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;User_Note.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;User_Note.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>194, 744</value>
+  </data>
+  <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 28</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>メモ</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Record_Sorting.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Yu Gothic UI, 10pt</value>
+  </data>
+  <data name="Record_Sorting.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Record_Sorting.Location" type="System.Drawing.Point, System.Drawing">
+    <value>391, 954</value>
+  </data>
+  <data name="Record_Sorting.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Record_Sorting.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 42</value>
+  </data>
+  <data name="Record_Sorting.TabIndex" type="System.Int32, mscorlib">
+    <value>41</value>
+  </data>
+  <data name="Record_Sorting.Text" xml:space="preserve">
+    <value>ソート</value>
+  </data>
+  <data name="&gt;&gt;Record_Sorting.Name" xml:space="preserve">
+    <value>Record_Sorting</value>
+  </data>
+  <data name="&gt;&gt;Record_Sorting.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Record_Sorting.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Record_Sorting.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>144, 144</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>918, 1005</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>就職活動履歴管理アプリケーション - Ver. 1.00</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Main_Form</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>
