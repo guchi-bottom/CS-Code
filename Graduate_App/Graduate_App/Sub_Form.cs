@@ -1,14 +1,4 @@
-﻿/* LICENSE INFORMATION
- * 
- * This source code has been written by a student of Hokkaido Information University.
- * The author is not responsible for any problems that may arise from the use of this software.
- *
- * Copyright (c) 2020 Yuuki Sakaguchi
- * Released under the MIT license.
- * https://opensource.org/licenses/mit-license.php
- */
-
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -54,8 +44,7 @@ namespace Graduate_App
              * 2. レコードを並び替えるか確認し、ユーザーが同意したら処理をするように配列に代入する    */
 
             //1.
-            int reject; //Try.Parse用
-            if (int.TryParse(textBox1.Text, out reject))
+            if (int.TryParse(textBox1.Text, out _))
             {
                 int Insert_Index = int.Parse(textBox1.Text);
                 if (Insert_Index > Main_Form.List_Len_Ins_Del[0])
@@ -193,14 +182,12 @@ namespace Graduate_App
             //2.
             //言語変更
 #if DEBUG || RELEASE
-            Name = "レコードの並び替え";
             label1.Text = "レコードを入れ替えます。";
             label2.Text = "変更前のレコード番号:";
             label4.Text = "変更したいレコード番号:";
             button1.Text = "入れ替え";
             button2.Text = "キャンセル";
 #else
-            Name = "Sorting of records";
             label1.Text = "Replace the records.";
             label2.Text = "Current record number:";
             label4.Text = "The code number you want to insert:";

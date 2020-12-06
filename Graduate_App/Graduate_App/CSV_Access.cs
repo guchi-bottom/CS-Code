@@ -44,7 +44,7 @@ namespace Graduate_App
                 //1.
                 //CSVファイルの存在確認をし、ファイルからレコードを読み込む。
                 Check_CSV();
-                string[] GET_CSV_RECORD = File.ReadAllLines(PATH + @"\きゃりろぐ\履歴情報.csv", Encoding.GetEncoding("UTF-8"));
+                string[] GET_CSV_RECORD = File.ReadAllLines(PATH + @"\Files\就職活動履歴.csv", Encoding.GetEncoding("UTF-8"));
                 Main_Form.CSV_RECORD.AddRange(GET_CSV_RECORD);
             }
             catch (IOException)
@@ -97,7 +97,7 @@ namespace Graduate_App
                     Check_CSV();
                 //2.
                 //CSVファイルを開き、ヘッダーから順にListに保存されている情報を書き込む。
-                StreamWriter Writing_File = new StreamWriter(PATH + @"\きゃりろぐ\履歴情報.csv", false, Encoding.UTF8);
+                StreamWriter Writing_File = new StreamWriter(PATH + @"\Files\就職活動履歴.csv", false, Encoding.UTF8);
                 for (int index = 0; index < CSV_RECORD.Count; index++)
                 {
                     string Save_Line = string.Join(",", CSV_RECORD[index]);
@@ -112,7 +112,7 @@ namespace Graduate_App
                 //切り替えポイント
 #if DEBUG || RELEASE
                 MessageBox.Show("別のアプリケーションによってCSVファイルが開かれているなどの理由により、正常に保存できませんでした\n"
-                    + "起動しているプログラムを確認し、もう一度保存してください"
+                    +"起動しているプログラムを確認し、もう一度保存してください"
                     , "Error"
                     , MessageBoxButtons.OK
                     , MessageBoxIcon.Error);
@@ -138,7 +138,7 @@ namespace Graduate_App
 
             //1.
             //CSVファイルを保存するフォルダを確認し、見つからなかった場合ユーザーに生成するか確認する。
-            if (Directory.Exists(PATH + @"\きゃりろぐ") == false)
+            if (Directory.Exists(PATH + @"\Files") == false)
             {
                 //切り替えポイント
 #if DEBUG || RELEASE
@@ -156,15 +156,15 @@ namespace Graduate_App
 #endif
                 if (check == DialogResult.Yes)
                 {
-                    Directory.CreateDirectory("きゃりろぐ");
+                    Directory.CreateDirectory("Files");
                     List<string> header_first = new List<string>(1);
                     header_first.Add(Header);
                     Save_ALL(header_first, true);
                     //切り替えポイント
 #if DEBUG || RELEASE
-                    MessageBox.Show("作成完了しました\nフォルダパス: " + PATH + @"\きゃりろぐ\履歴情報.csv");
+                    MessageBox.Show("作成完了しました\nフォルダパス: " + PATH + @"\Files\就職活動履歴.csv");
 #else
-                    MessageBox.Show("The creation is complete.\nFolder Path: " + PATH + @"\きゃりろぐ\履歴情報.csv");
+                    MessageBox.Show("The creation is complete.\nFolder Path: " + PATH + @"\Files\就職活動履歴.csv");
 #endif
                     Check_CSV();
                 }
@@ -185,7 +185,7 @@ namespace Graduate_App
             {
                 //2.
                 //CSVファイルを確認し、見つからなかった場合ユーザーに生成するか確認する。
-                if (File.Exists(PATH + @"\きゃりろぐ\履歴情報.csv") == false)
+                if (File.Exists(PATH + @"\Files\就職活動履歴.csv") == false)
                 {
 #if DEBUG || RELEASE
                     DialogResult check = MessageBox.Show("データを保存するフォルダが存在しません。\n作成しますか？"
@@ -206,11 +206,7 @@ namespace Graduate_App
                         header_first.Add(Header);
                         Save_ALL(header_first, true);
                         //切り替えポイント
-#if DEBUG || RELEASE
-                        MessageBox.Show("作成完了しました\nファイルパス: " + PATH + @"\きゃりろぐ\履歴情報.csv");
-#else
-                        MessageBox.Show("The creation is complete.\nFile Path: " + PATH + @"\きゃりろぐ\履歴情報.csv");
-#endif
+                        MessageBox.Show("The creation is complete.\nFile Path: " + PATH + @"\Files\就職活動履歴.csv");
                         Check_CSV();
                     }
                     else
@@ -219,7 +215,7 @@ namespace Graduate_App
                         //同意されなかった場合、MessageBoxを表示し終了する
                         //切り替えポイント
 #if DEBUG || RELEASE
-                        MessageBox.Show("データを保存するファイルが見つからないため、アプリケーションを終了します。");
+                    MessageBox.Show("データを保存するファイルが見つからないため、アプリケーションを終了します。");
 #else
                         MessageBox.Show("Quit the application because the File to save the data was not found.");
 #endif

@@ -65,6 +65,10 @@ namespace Graduate_App
              * 3. CSVファイルを読み込む
              * 4. Date_Portal, Log_Portalにそれぞれ代入    */
 
+            //テストコード(DEBUG, EN_DEBUGかどうかを判断)
+#if DEBUG||EN_DEBUG
+            MessageBox.Show("ねこちゃんはデバッグビルドをします。");
+#endif
             //HDPI対応かどうかを確認
             SetProcessDPIAware();
             //1.
@@ -76,7 +80,6 @@ namespace Graduate_App
             //コンポーネントの表示する文字列をここで切り替え
             //言語変更
 #if DEBUG || RELEASE
-            Name = "就職活動履歴管理アプリケーション きゃりろぐ - Ver. 1.00";
             List_Comp.Items.Add("(新規登録)");
             corp_name.Text = "企業名";
             service.Text = "利用サービス";
@@ -90,7 +93,6 @@ namespace Graduate_App
             CSV_Data_DEL.Text = "クリア";
             Record_Sorting.Text = "並び替え";
 #else
-            Name = "Job Search History Management Application CarriLog - Ver. 1.00";
             List_Comp.Items.Add("(New Registration)");
             corp_name.Text = "Company name";
             service.Text = "Name of Service";
@@ -281,11 +283,6 @@ namespace Graduate_App
                         Operation_Contents[Contents_Index] = (Date_Portal[index].Value.ToShortDateString());
                         Operation_Contents[Contents_Index + 1] = Log_Portal[index].Text;
                     }
-                    else
-                    {
-                        Operation_Contents[Contents_Index] = "0000/00/00";
-                        Operation_Contents[Contents_Index + 1] = "---";
-                    }
                     Contents_Index += 2;
                 }
                 //CSVファイルではレコード内での改行をサポートしていないため、改行コードを置き換えて保存
@@ -295,10 +292,7 @@ namespace Graduate_App
                 }
                 else
                 {
-                    if (User_Note.Text != "")
-                        Operation_Contents[24] = User_Note.Text;
-                    else
-                        Operation_Contents[24] = "---";
+                    Operation_Contents[24] = User_Note.Text;
                 }
 
                 //3.
@@ -414,7 +408,7 @@ namespace Graduate_App
                 int CSV_index = 4;
                 for (int index = 0; index < 10; index++)
                 {
-                    if (Operation_Contents[CSV_index + 1] != "---" && Operation_Contents[CSV_index + 1] != "")
+                    if (Operation_Contents[CSV_index + 1] != "")
                     {
                         Date_Portal[index].Value = DateTime.Parse(Operation_Contents[CSV_index]);
                         Log_Portal[index].Text = Operation_Contents[CSV_index + 1];
@@ -426,10 +420,10 @@ namespace Graduate_App
                     }
                     CSV_index += 2;
                 }
-                if (Operation_Contents[24] == "---" || Operation_Contents[24] == "")
-                    Operation_Contents[24] = "";
-                else if (Operation_Contents[24].Contains(" | "))
+                if (Operation_Contents[24].Contains(" | "))
+                {
                     Operation_Contents[24] = Operation_Contents[24].Replace(" | ", Environment.NewLine);
+                }
                 User_Note.Text = Operation_Contents[24];
             }
 
