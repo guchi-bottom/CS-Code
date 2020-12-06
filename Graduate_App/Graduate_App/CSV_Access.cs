@@ -1,4 +1,5 @@
-﻿/*
+﻿/* License Information
+ * 
  * This source code has been written by a student of Hokkaido Information University.
  * The author is not responsible for any problems that may arise from the use of this software.
  * 
@@ -8,8 +9,8 @@
  */
 
 using System;
+using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 
@@ -17,60 +18,89 @@ namespace Graduate_App
 {
     public class CSV_Access
     {
-        /*
-         * Global Variable Information
-         * 
-         * Variable Name:
-         * Type:
-         * Protection Level: 
-         * Data Information: 
-         */
-        const string Header = "id,name,service,url,status,date_1,log_1,date_2,log_2,date_3,log_3,date_4,log_4,date_5,log_5,date_6,log_6,date_7,log_7,date_8,log_8,date_9,log_9,date_10,log_10,memo";
+        //グローバル変数情報
+
+        /* 変数, 配列名: Header
+         * タイプ: string (System.String)
+         * アクセスレベル: const
+         * 格納値情報: CSVファイルに書き込むヘッダーの文字列を保持    */
+        const string Header = "name,service,url,status,date_1,log_1,date_2,log_2,date_3,log_3,date_4,log_4,date_5,log_5,date_6,log_6,date_7,log_7,date_8,log_8,date_9,log_9,date_10,log_10,memo";
+
+        /* 変数, 配列名: PATH
+         * タイプ: string (System.String)
+         * アクセスレベル: readonly private
+         * 格納値情報: 起動.exeファイルのファイル所在パスを保持    */
         readonly string PATH = Application.ExecutablePath.Substring(0, (Application.ExecutablePath).LastIndexOf(@"\"));
         public void Load_ALL()
         {
+            /* 名前: Load_ALL
+             * タイプ: メソッド
+             * 呼び出しタイミング: Main_Form.csから
+             * 動作内容:
+             * 1. CSVファイルからレコードを読み込み、レコード保持用Listに格納する
+             * 2. Exception発生時、MessageBoxを表示しプログラムを終了する    */
             try
             {
+                //1.
+                //CSVファイルの存在確認をし、ファイルからレコードを読み込む。
                 Check_CSV();
-<<<<<<< HEAD
                 string[] GET_CSV_RECORD = File.ReadAllLines(PATH + @"\きゃりろぐ\履歴情報.csv", Encoding.GetEncoding("UTF-8"));
                 Main_Form.CSV_RECORD.AddRange(GET_CSV_RECORD);
-=======
-                Form.CSV_SAVE_DATA = File.ReadAllLines(PATH + @"\Files\就職活動履歴.csv", Encoding.GetEncoding("UTF-8"));
->>>>>>> parent of e9c1a98... Ver. 1.00書出し
             }
             catch (IOException)
             {
+                //2.
+                //ファイルが見つからないなどの問題が発生した場合、MessageBoxを表示しプログラムを終了する。
+                //切り替えポイント
+#if DEBUG || RELEASE
                 MessageBox.Show("別のアプリケーションによってCSVファイルが開かれているなどの理由により、正常に起動できませんでした\n"
                     + "起動しているプログラムを確認し、もう一度起動してください"
                     , "Error"
                     , MessageBoxButtons.OK
                     , MessageBoxIcon.Error);
+#else
+                MessageBox.Show("It could not be started successfully, for example because a CSV file has been opened by another application.\n"
+                    +"Please check the program you are running and start it again."
+                    , "Error"
+                    , MessageBoxButtons.OK
+                    , MessageBoxIcon.Error);
+#endif
                 Environment.Exit(0);
             }
         }
-        public string[] Load_LINE(string[] CSV_SAVE_DATA, int LINE_NO)
+        public string[] Load_LINE(List<string> CSV_RECORD, int LINE_NO)
         {
-            string[] LOAD_DATA_LINES = CSV_SAVE_DATA[LINE_NO].Split(',');
-            return LOAD_DATA_LINES;
+            /* 名前: Load_LINE
+             * タイプ: メソッド
+             * 呼び出しタイミング: Main_Form.csから
+             * 動作内容:
+             * 1. 表示したいレコードを返却する    */
+            //1.
+            //CSVファイルから読み込んだレコードから表示したいレコードを抜き出し、コンマで分割した文字列配列を返却する
+            return CSV_RECORD[LINE_NO].Split(',');
         }
-        public bool Save_ALL(string[] CSV_SAVE_DATA, bool Initial_Start)
+        public bool Save_ALL(List<string> CSV_RECORD, bool Initial_Start)
         {
+            /* 名前: Save_ALL
+             * タイプ: メソッド
+             * 呼び出しタイミング: Main_Form.csから
+             * 動作内容:
+             * 1. 初期起動時以外にファイルの所在確認をする
+             * 2. CSVファイルを開き、レコードを１行ずつ書き込む
+             * 3. Exception発生時にMessageBoxを表示する    */
+
             try
             {
-                if(Initial_Start == false)
+                //1.
+                //CSVファイルの所在チェックを行うメソッドを起動する
+                if (Initial_Start == false)
                     Check_CSV();
-<<<<<<< HEAD
                 //2.
                 //CSVファイルを開き、ヘッダーから順にListに保存されている情報を書き込む。
                 StreamWriter Writing_File = new StreamWriter(PATH + @"\きゃりろぐ\履歴情報.csv", false, Encoding.UTF8);
                 for (int index = 0; index < CSV_RECORD.Count; index++)
-=======
-                StreamWriter Writing_File = new StreamWriter(PATH + @"\Files\就職活動履歴.csv", false, Encoding.UTF8);
-                for (int index = 0; index < CSV_SAVE_DATA.Length; index++)
->>>>>>> parent of e9c1a98... Ver. 1.00書出し
                 {
-                    string Save_Line = string.Join(",", CSV_SAVE_DATA[index]);
+                    string Save_Line = string.Join(",", CSV_RECORD[index]);
                     Writing_File.WriteLine("{0}", Save_Line);
                 }
                 Writing_File.Close();
@@ -78,7 +108,6 @@ namespace Graduate_App
             }
             catch (IOException)
             {
-<<<<<<< HEAD
                 //3.Exception発生時にMessageBoxを表示し、ユーザーに通知をする。
                 //切り替えポイント
 #if DEBUG || RELEASE
@@ -94,15 +123,11 @@ namespace Graduate_App
                     , MessageBoxButtons.OK
                     , MessageBoxIcon.Error);
 #endif
-=======
-                MessageBox.Show("別のアプリケーションによってCSVファイルが開かれているなどの理由により、正常に保存できませんでした\n起動しているプログラムを確認し、もう一度保存してください", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
->>>>>>> parent of e9c1a98... Ver. 1.00書出し
                 return false;
             }
         }
         public void Check_CSV()
         {
-<<<<<<< HEAD
             /* 名前: Save_ALL
              * タイプ: メソッド
              * 呼び出しタイミング: Main_Form.csから
@@ -114,18 +139,23 @@ namespace Graduate_App
             //1.
             //CSVファイルを保存するフォルダを確認し、見つからなかった場合ユーザーに生成するか確認する。
             if (Directory.Exists(PATH + @"\きゃりろぐ") == false)
-=======
-            Console.WriteLine(PATH);
-            if (Directory.Exists(PATH + @"\Files") == false)
->>>>>>> parent of e9c1a98... Ver. 1.00書出し
             {
+                //切り替えポイント
+#if DEBUG || RELEASE
                 DialogResult check = MessageBox.Show("データを保存するフォルダが存在しません。\n作成しますか？"
                     , "Question"
-                    , MessageBoxButtons.YesNo, MessageBoxIcon.Question
+                    , MessageBoxButtons.YesNo
+                    , MessageBoxIcon.Question
                     , MessageBoxDefaultButton.Button1);
+#else
+                DialogResult check = MessageBox.Show("The folder where I store my data does not exist.\nCreate?"
+                    , "Question"
+                    , MessageBoxButtons.YesNo
+                    , MessageBoxIcon.Question
+                    , MessageBoxDefaultButton.Button1);
+#endif
                 if (check == DialogResult.Yes)
                 {
-<<<<<<< HEAD
                     Directory.CreateDirectory("きゃりろぐ");
                     List<string> header_first = new List<string>(1);
                     header_first.Add(Header);
@@ -136,54 +166,55 @@ namespace Graduate_App
 #else
                     MessageBox.Show("The creation is complete.\nFolder Path: " + PATH + @"\きゃりろぐ\履歴情報.csv");
 #endif
-=======
-                    Directory.CreateDirectory("Files");
-                    string[] header_first = { Header };
-                    Save_ALL(header_first, true);
-                    MessageBox.Show("作成完了しました\nフォルダパス: " + PATH + @"\Files\就職活動履歴.csv");
->>>>>>> parent of e9c1a98... Ver. 1.00書出し
                     Check_CSV();
                 }
                 else
                 {
+                    //3.
+                    //同意されなかった場合、MessageBoxを表示し終了する
+                    //切り替えポイント
+#if DEBUG || RELEASE
                     MessageBox.Show("データを保存するフォルダが見つからないため、アプリケーションを終了します。");
+#else
+                    MessageBox.Show("Quit the application because the folder to save the data was not found.");
+#endif
                     Environment.Exit(0);
                 }
             }
             else
             {
-<<<<<<< HEAD
                 //2.
                 //CSVファイルを確認し、見つからなかった場合ユーザーに生成するか確認する。
                 if (File.Exists(PATH + @"\きゃりろぐ\履歴情報.csv") == false)
-=======
-                if (File.Exists(PATH + @"\Files\就職活動履歴.csv") == false)
->>>>>>> parent of e9c1a98... Ver. 1.00書出し
                 {
-                    DialogResult check = MessageBox.Show("データを保存するファイルが存在しません。\n作成しますか？"
+#if DEBUG || RELEASE
+                    DialogResult check = MessageBox.Show("データを保存するフォルダが存在しません。\n作成しますか？"
                         , "Question"
                         , MessageBoxButtons.YesNo
                         , MessageBoxIcon.Question
                         , MessageBoxDefaultButton.Button1);
+#else
+                    DialogResult check = MessageBox.Show("No file to save the data.\nCreate?"
+                        , "Question"
+                        , MessageBoxButtons.YesNo
+                        , MessageBoxIcon.Question
+                        , MessageBoxDefaultButton.Button1);
+#endif
                     if (check == DialogResult.Yes)
                     {
-                        string[] header_first = { Header };
+                        List<string> header_first = new List<string>(1);
+                        header_first.Add(Header);
                         Save_ALL(header_first, true);
-<<<<<<< HEAD
                         //切り替えポイント
 #if DEBUG || RELEASE
                         MessageBox.Show("作成完了しました\nファイルパス: " + PATH + @"\きゃりろぐ\履歴情報.csv");
 #else
                         MessageBox.Show("The creation is complete.\nFile Path: " + PATH + @"\きゃりろぐ\履歴情報.csv");
 #endif
-=======
-                        MessageBox.Show("作成完了しました\nファイルパス: " + PATH + @"\Files\就職活動履歴.csv");
->>>>>>> parent of e9c1a98... Ver. 1.00書出し
                         Check_CSV();
                     }
                     else
                     {
-<<<<<<< HEAD
                         //3.
                         //同意されなかった場合、MessageBoxを表示し終了する
                         //切り替えポイント
@@ -192,9 +223,6 @@ namespace Graduate_App
 #else
                         MessageBox.Show("Quit the application because the File to save the data was not found.");
 #endif
-=======
-                        MessageBox.Show("データを保存するファイルが見つからないため、アプリケーションを終了します。");
->>>>>>> parent of e9c1a98... Ver. 1.00書出し
                         Environment.Exit(0);
                     }
                 }
