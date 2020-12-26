@@ -10,253 +10,106 @@
 
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Graduate_App
 {
     public partial class Main_Form : Form
     {
-        //グローバル変数情報
-
-        /* 変数, 配列名: CSV_RECORD
-         * タイプ: List<string> (System.Collections.Generic.List<System.String>)
-         * アクセスレベル: Public staic
-         * 格納値情報: CSVから読み込まれた, CSVに書き込む情報(レコード)を保持    */
         public static List<string> CSV_RECORD = new List<string>();
-
-        /* 変数, 配列名: Date_Portal
-         * タイプ: DateTimePicker[] (System.Windows.Forms.DateTimePicker)
-         * アクセスレベル: private readonly
-         * 格納値情報: 活動履歴入力用のDateTimePickerコンポーネントに関する情報を保持    */
-        private readonly DateTimePicker[] Date_Portal = new DateTimePicker[10];
-
-        /* 変数, 配列名: Log_Portal
-         * タイプ: TextBox[] (System.Windows.Forms.TextBox)
-         * アクセスレベル: private readonly
-         * 格納値情報: 活動履歴入力用のTextBoxコンポーネントに関する情報を保持    */
-        private readonly TextBox[] Log_Portal = new TextBox[10];
-
-        /* 変数, 配列名: Operation_Contents
-         * タイプ: string[25] (System.String)
-         * アクセスレベル: Public
-         * 格納値情報: ListBoxで選択されたレコードに関する情報を格納    */
+        List<Label> C_Labels = new List<Label>();
+        List<Label> L_Labels = new List<Label>();
+        List<DateTimePicker> L_Date = new List<DateTimePicker>();
+        List<TextBox> L_Text = new List<TextBox>();
         public string[] Operation_Contents = new string[25];
-
-        /* 変数, 配列名: List_Len_Ins_Del
-         * タイプ: int[] (System.Int32)
-         * アクセスレベル: Public static
-         * 格納値情報: List(CSV_RECORD)の要素数, 挿入インデックス, 削除インデックスを保持    */
-        public static int[] List_Len_Ins_Del = { 0, -1, 0 };
-
-        /* 変数, 配列名: CSV_ACCESS
-         * タイプ: class
-         * アクセスレベル: private
-         * 格納値情報: CSV_Aceessクラスを定義    */
+        private int Selected_Index = 0;
+        int Log_Index = 0;
+        Panel C_P;
+        Panel L_P;
+        private Label Label;
+        public static int[] List_Len_Ins_Del;
         private CSV_Access CSV_ACCESS => new CSV_Access();
 
         public Main_Form()
         {
-            /* 名前: Main_Form
-             * タイプ: コンストラクタ
-             * 呼び出しタイミング: クラス作成時
-             * 動作内容:
-             * 1. コンポーネントの初期化(Designer.cs)
-             * 2. コンポーネントに代入する(表示する)言語を選択し、代入
-             * 3. CSVファイルを読み込む
-             * 4. Date_Portal, Log_Portalにそれぞれ代入    */
-
-            //テストコード(DEBUG, EN_DEBUGかどうかを判断)
-#if DEBUG||EN_DEBUG
-            MessageBox.Show("ねこちゃんはデバッグビルドをします。");
-#endif
-            //HDPI対応かどうかを確認
+            Console.WriteLine("こんすとらくた。");
+            C_P = Comp_Panel;
+            L_P = Log_Panel;
             SetProcessDPIAware();
-            //1.
-            //Visual Studioによって自動生成されたコード
-            //コンポーネント情報を初期化(Main_Form.Designer.cs内)
             InitializeComponent();
-            //2.
-            //ビルド構成によって言語を切り替え(日本語, 英語)
-            //コンポーネントの表示する文字列をここで切り替え
-            //言語変更
-#if DEBUG || RELEASE
-            List_Comp.Items.Add("(新規登録)");
+            Name = "就職活動履歴管理アプリケーション きゃりろぐ - Ver. 1.00";
             corp_name.Text = "企業名";
             service.Text = "利用サービス";
             group_status.Text = "活動状況";
             Log_Doing.Text = "活動中";
             Log_UnOfficial.Text = "内定取得";
             Log_Decline.Text = "辞退等";
-            group_log.Text = "活動履歴";
             label2.Text = "メモ";
             CSV_Data_ADD.Text = "登録";
             CSV_Data_DEL.Text = "クリア";
             Record_Sorting.Text = "並び替え";
-#else
-            List_Comp.Items.Add("(New Registration)");
-            corp_name.Text = "Company name";
-            service.Text = "Name of Service";
-            group_status.Text = "Activity status";
-            Log_Doing.Text = "In action";
-            Log_UnOfficial.Text = "Getting a job offer";
-            Log_Decline.Text = "Decline, etc.";
-            group_log.Text = "Activity history";
-            label2.Text = "Memo";
-            CSV_Data_ADD.Text = "Registration";
-            CSV_Data_DEL.Text = "Clear";
-            Record_Sorting.Text = "Sording";
-#endif
-            //3.
-            //CSV_Accessクラス内のメソッドを呼び出し
-            //呼び出し先のメソッドでCSV_RECORDへ代入
-            //レコード数を管理用配列に代入
             CSV_ACCESS.Load_ALL();
             Console.WriteLine("DEBUG: " + CSV_RECORD.Count);
-            List_Len_Ins_Del[0] = CSV_RECORD.Count - 1;
-            //4.
-            //各種コンポーネントを配列へ代入
-            Date_Portal[0] = Date_1;
-            Date_Portal[1] = Date_2;
-            Date_Portal[2] = Date_3;
-            Date_Portal[3] = Date_4;
-            Date_Portal[4] = Date_5;
-            Date_Portal[5] = Date_6;
-            Date_Portal[6] = Date_7;
-            Date_Portal[7] = Date_8;
-            Date_Portal[8] = Date_9;
-            Date_Portal[9] = Date_10;
-            Log_Portal[0] = Log_1;
-            Log_Portal[1] = Log_2;
-            Log_Portal[2] = Log_3;
-            Log_Portal[3] = Log_4;
-            Log_Portal[4] = Log_5;
-            Log_Portal[5] = Log_6;
-            Log_Portal[6] = Log_7;
-            Log_Portal[7] = Log_8;
-            Log_Portal[8] = Log_9;
-            Log_Portal[9] = Log_10;
         }
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         private static extern bool SetProcessDPIAware();
-        /* 名前: SetProcessDPIAware
-         * タイプ: メソッド
-         * 呼び出しタイミング: コンストラクタから
-         * 動作内容: 1. DLLファイルを参照し、DPI対応情報を参照する     */
         private void Form1_Load(object sender, EventArgs e)
         {
-            /* 名前: Form1_Load
-             * タイプ: メソッド
-             * 呼び出しタイミング: フォームの読み込み時
-             * 動作内容:
-             * 1. CSVファイルから読み込まれたレコードがヘッダーだけでは無かった場合、ListBoxへ情報を格納するメソッドを呼び出す
-             * 2. Exception発生時、プログラムを終了する    */
+            Console.WriteLine("ふぉーむろーど。");
             try
             {
-                List_Comp.SelectedIndex = 0;
-                //1.
-                //CSVファイルから読み込まれたレコードがヘッダーだけか判断
+                C_Labels.Add(Item_0);
+                L_Labels.Add(L_Label_0);
+                L_Date.Add(L_Date_0);
+                L_Text.Add(L_Text_0);
                 if (CSV_RECORD.Count != 1)
-                    //ListBoxに情報を格納するメソッドを呼び出す
-                    Add_List();
+                {
+                    Console.WriteLine("データあるよ");
+                    for (int line = 1; line < CSV_RECORD.Count; line++)
+                    {
+                        Console.WriteLine("Forのなかだよ");
+                        string[] CSV_DATA_LINE = CSV_ACCESS.Load_LINE(CSV_RECORD, line);
+                        Console.WriteLine("CSVデータロードするよ");
+                        Add_Company_Name_Label(CSV_DATA_LINE[0], int.Parse(CSV_DATA_LINE[3]));
+                    }
+                }
             }
             catch (Exception)
             {
-                //2.
-                //ユーザーにプログラムを終了するとMessageBoxを表示
-                //言語変更
-#if DEBUG || RELEASE
                 MessageBox.Show("CSVファイルが見つからないか、なんらかの問題が発生しているため、アプリケーションを終了します。"
                     , "Error"
                     , MessageBoxButtons.OK
                     , MessageBoxIcon.Error);
-#else
-                MessageBox.Show("Exit the application because the CSV file is not found or is experiencing some kind of problem."
-                    , "Error"
-                    , MessageBoxButtons.OK
-                    , MessageBoxIcon.Error);
-#endif
-                //プログラムを終了
                 Close();
             }
         }
         private void CSV_Data_ADD_Clicked(object sender, EventArgs e)
         {
-            /* 名前: CSV_Data_ADD_Clicked
-             * タイプ: メソッド
-             * 呼び出しタイミング: コンポーネント"CSV_Data_Add"(Button)がクリックされたとき
-             * 動作内容:
-             * 1. 必須情報が入力されているか確認
-             * 2. コンポーネントに格納されている情報を処理用配列に代入
-             * 3. 新規保存か上書き保存かを判別し、CSVファイルに書き込む    */
-
-            //1.
-            //企業名, サービス名、活動履歴 No.1が入力されているか確認
-            //入力されていなかった場合、MessageBoxでユーザーに通知
-            if (Company_Name.Text == "" || Service_Name.Text == "" || Log_Portal[0].Text == "")
+            Console.WriteLine("でーたぶちこむよ。");
+            if (Company_Name.Text == "" || Service_Name.Text == "" || L_Text[0].Text == "")
             {
                 string Error_String = "";
                 if (Company_Name.Text == "")
-                {
-                    //言語変更
-#if DEBUG || RELEASE
                     Error_String = "\"企業名\"";
-#else
-                    Error_String = "\"Company Name\"";
-#endif
-                }
 
                 if (Service_Name.Text == "")
                 {
                     if (Company_Name.Text == "")
-                    {
-                        //言語変更
-#if DEBUG || RELEASE
+
                         Error_String += ", \"利用サービス名\"";
-#else
-                        Error_String += ", \"Name of Service\"";
-#endif
-                    }
                     else
-                    {
-                        //言語変更
-#if DEBUG || RELEASE
                         Error_String = "\"利用サービス名\"";
-#else
-                        Error_String = "\"Name of Service\"";
-#endif
-                    }
                 }
-                if (Log_Portal[0].Text == "")
+                if (L_Text[0].Text == "")
                 {
                     if (Company_Name.Text == "" || Service_Name.Text == "")
-                    {
-                        //言語変更
-#if DEBUG || RELEASE
                         Error_String += ", \"活動履歴 No.1\"";
-#else
-                        Error_String += ", \"Activity history No.1\"";
-#endif
-                    }
                     else
-                    {
-                        //言語変更
-#if DEBUG || RELEASE
                         Error_String = "\"活動履歴 No.1\"";
-#else
-                        Error_String = "\"Activity history No.1\"";
-#endif
-                    }
                 }
-                //言語変更
-#if DEBUG || RELEASE
                 MessageBox.Show(Error_String + "が入力されていません\n上記項目を入力し、もう一度\"" + CSV_Data_ADD.Text + "\"ボタンをクリックしてください。");
-#else
-                MessageBox.Show("The " + Error_String + " has not been entered. \nPlease enter the above information and click the \"" + CSV_Data_ADD.Text + "\" button again.");
-#endif
             }
-
-            //2.
-            //入力されている情報を配列へ代入
             else
             {
                 Operation_Contents[0] = Company_Name.Text;
@@ -274,279 +127,241 @@ namespace Graduate_App
                 {
                     Operation_Contents[3] = "3";
                 }
-
-                int Contents_Index = 4;
-                for (int index = 0; index < 10; index++)
-                {
-                    if (Log_Portal[index].Text != "")
-                    {
-                        Operation_Contents[Contents_Index] = (Date_Portal[index].Value.ToShortDateString());
-                        Operation_Contents[Contents_Index + 1] = Log_Portal[index].Text;
-                    }
-                    Contents_Index += 2;
-                }
-                //CSVファイルではレコード内での改行をサポートしていないため、改行コードを置き換えて保存
                 if (User_Note.Text.Contains(Environment.NewLine))
                 {
-                    Operation_Contents[24] = User_Note.Text.Replace(Environment.NewLine, " | ");
+                    Operation_Contents[4] = User_Note.Text.Replace(Environment.NewLine, " | ");
                 }
                 else
                 {
-                    Operation_Contents[24] = User_Note.Text;
+                    if (User_Note.Text != "")
+                        Operation_Contents[4] = User_Note.Text;
+                    else
+                        Operation_Contents[4] = "---";
                 }
-
-                //3.
-                //処理用配列に格納されている文字列をコンマ区切りで結合
-                //結合文字列をListへ格納しCSVファイルを保存
-                if (List_Comp.SelectedIndex == 0)
+                /*
+                 * ここに企業活動履歴を入力
+                 */
+                if (Selected_Index == 0)
                 {
-                    //新規登録
                     CSV_RECORD.Add(string.Join(",", Operation_Contents));
                     CSV_ACCESS.Save_ALL(CSV_RECORD, false);
-                    List_Comp.Items.Add(Company_Name.Text);
-                    //言語変更
-#if DEBUG || RELEASE
+                    Add_Company_Name_Label(Operation_Contents[0], int.Parse(Operation_Contents[3]));
                     MessageBox.Show("新規登録が完了しました。\n企業名: " + Company_Name.Text, "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
-#else
-                    MessageBox.Show("Your information has been added to the system.\nCompany 名前: " + Company_Name.Text, "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
-#endif
-                    //入力情報をリセット
                     Component_Reset();
                 }
                 else
                 {
-                    //上書保存
-                    CSV_RECORD[List_Comp.SelectedIndex] = string.Join(",", Operation_Contents);
+                    CSV_RECORD[Selected_Index] = string.Join(",", Operation_Contents);
                     CSV_ACCESS.Save_ALL(CSV_RECORD, false);
-                    List_Comp.Items.Insert(List_Comp.SelectedIndex, Company_Name.Text);
-                    List_Comp.SelectedIndex--;
-                    List_Comp.Items.RemoveAt(List_Comp.SelectedIndex + 1);
-                    //言語変更
-#if DEBUG || RELEASE
+                    C_Labels[Selected_Index].Text = Operation_Contents[0];
                     MessageBox.Show("上書保存が完了しました。\n企業名: " + Company_Name.Text, "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
-#else
-                    MessageBox.Show("The information has been overwritten and saved.\nCompany 名前: " + Company_Name.Text, "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
-#endif
                 }
-                //レコード数を管理用配列に代入
-                List_Len_Ins_Del[0] = CSV_RECORD.Count - 1;
             }
-        }
-        private void List_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            /* 名前: List_SelectedIndexChanged
-             * タイプ: メソッド
-             * 呼び出しタイミング: ListBoxの選択されているアイテムが変更されたとき
-             * 動作内容:
-             * 1. 選択されたアイテムが要素数を超えるなどの問題が発生した時に問題を吸収する
-             * 2. 選択されたアイテムによって、コンポーネントの表示文字列などを変更する    */
-
-            //1.
-            //登録されていないアイテムを選択できてしまった場合、リストの最後の項目を選択する
-            if (List_Comp.SelectedIndex > CSV_RECORD.Count - 1 || List_Comp.SelectedIndex < 0)
-            {
-                List_Comp.SelectedIndex = CSV_RECORD.Count - 1;
-            }
-            //選択されているレコードインデックスを管理用配列に代入
-            List_Len_Ins_Del[2] = List_Comp.SelectedIndex;
-
-            //2.
-            //コンポーネントにレコード情報を表示する
-
-            //コンポーネントに入力されている情報を削除
-            Component_Reset();
-            //新規登録を選択している場合
-            if (List_Comp.SelectedIndex == 0)
-            {
-                //並び替え用のボタンを無効化
-                Record_Sorting.Enabled = false;
-                //言語変更
-#if DEBUG || RELEASE
-                CSV_Data_ADD.Text = "登録";
-                CSV_Data_DEL.Text = "クリア";
-#else
-                CSV_Data_ADD.Text = "Registration";
-                CSV_Data_DEL.Text = "Clear";
-#endif
-            }
-            //レコードを選択している場合
-            else
-            {
-                //複数のレコードが登録されていない場合、並び替え用のボタンを無効化
-                if (List_Comp.Items.Count == 2)
-                    Record_Sorting.Enabled = false;
-                else
-                    Record_Sorting.Enabled = true;
-                //言語変更
-#if DEBUG || RELEASE
-                CSV_Data_ADD.Text = "上書保存";
-                CSV_Data_DEL.Text = "削除";
-#else
-                CSV_Data_ADD.Text = "overwrite save";
-                CSV_Data_DEL.Text = "Delete";
-#endif
-                //レコードをロードし、コンポーネントへそれぞれ代入する
-                Operation_Contents = CSV_ACCESS.Load_LINE(CSV_RECORD, List_Comp.SelectedIndex);
-                Company_Name.Text = Operation_Contents[0];
-                Service_Name.Text = Operation_Contents[1];
-                Company_URI.Text = Operation_Contents[2];
-                switch (Operation_Contents[3])
-                {
-                    case "1":
-                        Log_Doing.Checked = true;
-                        break;
-                    case "2":
-                        Log_UnOfficial.Checked = true;
-                        break;
-                    case "3":
-                        Log_Decline.Checked = true;
-                        break;
-                    default:
-                        Log_Doing.Checked = true;
-                        break;
-                }
-                int CSV_index = 4;
-                for (int index = 0; index < 10; index++)
-                {
-                    if (Operation_Contents[CSV_index + 1] != "")
-                    {
-                        Date_Portal[index].Value = DateTime.Parse(Operation_Contents[CSV_index]);
-                        Log_Portal[index].Text = Operation_Contents[CSV_index + 1];
-                    }
-                    else
-                    {
-                        Date_Portal[index].Value = DateTime.Now;
-                        Log_Portal[index].Text = "";
-                    }
-                    CSV_index += 2;
-                }
-                if (Operation_Contents[24].Contains(" | "))
-                {
-                    Operation_Contents[24] = Operation_Contents[24].Replace(" | ", Environment.NewLine);
-                }
-                User_Note.Text = Operation_Contents[24];
-            }
-
         }
         private void CSV_Data_DEL_Click(object sender, EventArgs e)
         {
-            /* 名前: CSV_Data_DEL_Click
-             * タイプ: メソッド
-             * 呼び出しタイミング: 情報を削除するボタンをクリックされたとき
-             * 動作内容:
-             * 1. ユーザーにMessageBoxで削除するか確認
-             * 2. 同意された場合、データを削除    */
-
-            //1.
-            //削除・クリアするかユーザーに確認
+            Console.WriteLine("でーたころすよ。");
             DialogResult Ques = DialogResult.No;
-            //言語変更
-#if DEBUG || RELEASE
             Ques = MessageBox.Show("情報を" + CSV_Data_DEL.Text + "します。\nよろしいですか?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-#else
-            if (List_Comp.SelectedIndex == 0)
-                Ques = MessageBox.Show("The system will erase the information you have entered.\nAre you sure?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            else
-                Ques = MessageBox.Show("The system will delete the registered information.\nAre you sure?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-#endif
-            //ユーザーが同意した場合、コンポーネントの文字列を削除しレコードの情報を削除する
             if (Ques == DialogResult.Yes)
             {
-                //新規保存を選択している場合
-                if (List_Comp.SelectedIndex == 0)
-                {
+                if (Selected_Index == 0)
                     Component_Reset();
-                }
-                //それ以外の場合
                 else
                 {
-                    int delete_id = List_Comp.SelectedIndex;
-                    CSV_RECORD.RemoveAt(delete_id);
-                    List_Comp.Items.RemoveAt(delete_id);
-                    List_Comp.SelectedIndex = delete_id - 1;
+                    for (int i = Selected_Index; i < Comp_Panel.Controls.Count - 1; i++)
+                        C_Labels[i].Text = C_Labels[i + 1].Text;
+                    Comp_Panel.Controls.Remove(C_Labels[Comp_Panel.Controls.Count - 1]);
+                    CSV_RECORD.RemoveAt(Selected_Index);
                     CSV_ACCESS.Save_ALL(CSV_RECORD, false);
                 }
-                //言語変更
-#if DEBUG || RELEASE
                 MessageBox.Show("情報を" + CSV_Data_DEL.Text + "しました。");
-#else
-                if (List_Comp.SelectedIndex == 0)
-                    MessageBox.Show("The system has erased the information you entered.", "Complete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                else
-                    MessageBox.Show("The system has deleted the registered information.", "Complete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-#endif
-                //レコード数を管理用配列に代入
-                List_Len_Ins_Del[0] = CSV_RECORD.Count - 1;
             }
         }
         public void Component_Reset()
         {
-            /* 名前: Component_Reset
-             * タイプ: メソッド
-             * 呼び出しタイミング: コンポーネントに格納されている文字列を削除する場合
-             * 動作内容:
-             * 1. コンポーネントの情報を削除する    */
-
-            //1.
-            //コンポーネントに格納されている情報を初期化する
+            Console.WriteLine("にゅーりょくでーたけすよ。");
             Company_Name.Text = "";
             Service_Name.Text = "";
             Company_URI.Text = "";
             Log_Doing.Checked = true;
-            int index = 0;
-            while (index < 10)
-            {
-                Date_Portal[index].Value = DateTime.Now;
-                Log_Portal[index].Text = "";
-                index++;
-            }
+            User_Note.Text = "";
         }
-        public void Add_List()
+        public void Add_Company_Name_Label(string comp_name, int Background_Color_No)
         {
-            /* 名前: Add_List
-             * タイプ: メソッド
-             * 呼び出しタイミング: フォームが読み出され、CSVファイルにレコードが1つ以上保存されている時
-             * 動作内容:
-             * 1. レコードから企業名を取り出し、ListBoxへ追加する    */
-
-            //1.
-            //レコードから企業名列にある情報を取り出し、ListBoxへ登録する
-            for (int line = 1; line < CSV_RECORD.Count; line++)
+            Console.WriteLine("ぱねるについかするよ");
+            C_P = Comp_Panel;
+            Console.WriteLine("パネル宣言");
+            Label = new Label
             {
-                string[] CSV_DATA_LINE = CSV_ACCESS.Load_LINE(CSV_RECORD, line);
-                List_Comp.Items.Add(CSV_DATA_LINE[0]);
+                Name = "Item_" + Comp_Panel.Controls.Count.ToString(),
+                Text = comp_name,
+                Location = new Point(0, 25 * Comp_Panel.Controls.Count),
+                Size = new Size(150, 25),
+                Font = new Font("Yu Gothic UI", 10.2f)
+            };
+            Console.WriteLine("Label設定したよ");
+            Label.Click += new EventHandler(Item_Clicked);
+            Console.WriteLine("イベント追加したよ");
+            Comp_Panel.Controls.Add(Label);
+            Console.WriteLine("Panelにぶち込んだよ");
+            Label_BackColor_Set(Label, Background_Color_No);
+            C_Labels.Add(Label);
+        }
+        public void Label_BackColor_Set(Label Label, int Background_Color_No)
+        {
+            Console.WriteLine(Label.Name + "の色チェンするでぇ");
+            switch (Background_Color_No)
+            {
+                case 0:
+                    Label.Font = new Font("Yu Gothic UI", 10.2f);
+                    Label.ForeColor = Color.Black;
+                    Label.BackColor = Color.Empty;
+                    break;
+                case 1:
+                    Label.Font = new Font("Yu Gothic UI", 10.2f);
+                    Label.ForeColor = Color.Black;
+                    Label.BackColor = Color.YellowGreen;
+                    break;
+                case 2:
+                    Label.Font = new Font("Yu Gothic UI", 10.2f);
+                    Label.ForeColor = Color.Black;
+                    Label.BackColor = Color.Yellow;
+                    break;
+                case 3:
+                    Label.Font = new Font("Yu Gothic UI", 10.2f);
+                    Label.ForeColor = Color.Black;
+                    Label.BackColor = Color.Orange;
+                    break;
+                case 4:
+                    Label.Font = new Font("Yu Gothic UI", 10.2f, FontStyle.Underline);
+                    Label.ForeColor = Color.White;
+                    Label.BackColor = Color.Blue;
+                    break;
+                default:
+                    break;
             }
         }
-
         private void Sorting_Record_Click(object sender, EventArgs e)
         {
-            /* 名前: Sorting_Record_Click
-             * タイプ: メソッド
-             * 呼び出しタイミング: 並び替えをするコンポーネントボタンがクリックされた
-             * 動作内容:
-             * 1. Sab_Formをモーダルフォームとして呼び出し
-             * 2. 変更先インデックスを指定されている場合、並び替える    */
-
-            //1.
-            //モーダルフォームとしてSub_Formを呼び出す
+            /*
+             * 
+             * ソートは一回お休み
             Sub_Form sub = new Sub_Form();
             sub.ShowDialog(this);
             sub.Dispose();
-
-            //2.
-            //サブフォームで変更先のインデックスを指定する配列が変更されている場合、並び替えを行う。
             if (List_Len_Ins_Del[1] != -1)
             {
                 string Insert_std = CSV_RECORD[List_Len_Ins_Del[2]];
-                string Insert_com = List_Comp.SelectedItem.ToString();
+                string Insert_com = .SelectedItem.ToString();
                 CSV_RECORD.RemoveAt(List_Len_Ins_Del[2]);
-                List_Comp.Items.RemoveAt(List_Len_Ins_Del[2]);
+                .Items.RemoveAt(List_Len_Ins_Del[2]);
                 CSV_RECORD.Insert(List_Len_Ins_Del[1], Insert_std);
-                List_Comp.Items.Insert(List_Len_Ins_Del[1], Insert_com);
-                List_Comp.SelectedIndex = List_Len_Ins_Del[1];
+                .Items.Insert(List_Len_Ins_Del[1], Insert_com);
+                Selected_Index = List_Len_Ins_Del[1];
                 List_Len_Ins_Del[1] = -1;
                 CSV_ACCESS.Save_ALL(CSV_RECORD, false);
+            }*/
+        }
+        private void Item_Clicked(object sender, EventArgs e)
+        {
+            Console.WriteLine("ラベルクリックされただぁよ");
+            if (Selected_Index != int.Parse(((Label)sender).Name.Substring(5)))
+            {
+                Console.WriteLine("せんたくされとんのは" + Selected_Index + "やで");
+                if (Selected_Index == 0)
+                    Label_BackColor_Set(C_Labels[Selected_Index], 0);
+                else
+                    Label_BackColor_Set(C_Labels[Selected_Index]
+                        ,int.Parse(Operation_Contents[3]));
+                Component_Reset();
+                Selected_Index = int.Parse(((Label)sender).Name.Substring(5));
+                Label_BackColor_Set((Label)sender, 4);
+                //データロードしてね
+                if (Selected_Index == 0)
+                {
+                    Record_Sorting.Enabled = false;
+                    CSV_Data_ADD.Text = "登録";
+                    CSV_Data_DEL.Text = "クリア";
+                }
+                else
+                {
+                    if (Comp_Panel.Controls.Count < 3)
+                        Record_Sorting.Enabled = false;
+                    else
+                        Record_Sorting.Enabled = true;
+                    CSV_Data_ADD.Text = "上書保存";
+                    CSV_Data_DEL.Text = "削除";
+                    Operation_Contents = CSV_ACCESS.Load_LINE(CSV_RECORD, Selected_Index);
+                    Company_Name.Text = Operation_Contents[0];
+                    Service_Name.Text = Operation_Contents[1];
+                    Company_URI.Text = Operation_Contents[2];
+                    switch (Operation_Contents[3])
+                    {
+                        case "1":
+                            Log_Doing.Checked = true;
+                            break;
+                        case "2":
+                            Log_UnOfficial.Checked = true;
+                            break;
+                        case "3":
+                            Log_Decline.Checked = true;
+                            break;
+                        default:
+                            Log_Doing.Checked = true;
+                            break;
+                    }
+                    if (Operation_Contents[4] == "---" || Operation_Contents[4] == "")
+                        Operation_Contents[4] = "";
+                    else if (Operation_Contents[4].Contains(" | "))
+                        Operation_Contents[4] = Operation_Contents[4].Replace(" | ", Environment.NewLine);
+                    User_Note.Text = Operation_Contents[4];
+                }
             }
+        }
+        private void L_Text_Leave(object sender, EventArgs e)
+        {
+            if(L_Text_No_entry((TextBox)sender))
+                Log_Items_Delete((TextBox)sender);
+        }
+        private bool L_Text_No_entry(TextBox text)
+        {
+            if (text.Text == "")
+                return true;
+            else
+                return false;
+        }
+        private void L_Text_TextChanged(object sender, EventArgs e)
+        {
+            if (L_Text_No_entry((TextBox)sender) == false)
+                Log_Items_Add((TextBox)sender);
+        }
+        private void Log_Items_Add(TextBox text)
+        {
+            int nekochan = int.Parse(text.Name.Substring(7)) + 1;
+            Label = new Label
+            {
+            };
+            L_P.Controls.Add(L_Labels[nekochan]);
+            L_Labels.Remove(L_Labels[nekochan]);
+
+            L_P.Controls.Remove(L_Date[nekochan]);
+            L_Date.Remove(L_Date[nekochan]);
+
+            L_P.Controls.Remove(L_Text[nekochan]);
+            L_Text.Remove(L_Text[nekochan]);
+        }
+        private void Log_Items_Delete(TextBox text)
+        {
+            int nekochan = int.Parse(text.Name.Substring(7)) + 1;
+            L_P.Controls.Remove(L_Labels[nekochan]);
+            L_Labels.Remove(L_Labels[nekochan]);
+            
+            L_P.Controls.Remove(L_Date[nekochan]);
+            L_Date.Remove(L_Date[nekochan]);
+            
+            L_P.Controls.Remove(L_Text[nekochan]);
+            L_Text.Remove(L_Text[nekochan]);
         }
     }
 }
