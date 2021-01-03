@@ -46,7 +46,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.User_Note = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.Record_Sorting = new System.Windows.Forms.Button();
             this.Comp_Panel = new System.Windows.Forms.Panel();
             this.Item_0 = new System.Windows.Forms.Label();
             this.Log_Panel = new System.Windows.Forms.Panel();
@@ -125,7 +124,6 @@
             resources.ApplyResources(this.L_Text_0, "L_Text_0");
             this.L_Text_0.Name = "L_Text_0";
             this.L_Text_0.TextChanged += new System.EventHandler(this.L_Text_TextChanged);
-            this.L_Text_0.Leave += new System.EventHandler(this.L_Text_Leave);
             // 
             // L_Label_0
             // 
@@ -159,13 +157,6 @@
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
             // 
-            // Record_Sorting
-            // 
-            resources.ApplyResources(this.Record_Sorting, "Record_Sorting");
-            this.Record_Sorting.Name = "Record_Sorting";
-            this.Record_Sorting.UseVisualStyleBackColor = true;
-            this.Record_Sorting.Click += new System.EventHandler(this.Sorting_Record_Click);
-            // 
             // Comp_Panel
             // 
             resources.ApplyResources(this.Comp_Panel, "Comp_Panel");
@@ -174,6 +165,7 @@
             // 
             // Item_0
             // 
+            this.Item_0.AutoEllipsis = true;
             this.Item_0.BackColor = System.Drawing.Color.Blue;
             resources.ApplyResources(this.Item_0, "Item_0");
             this.Item_0.ForeColor = System.Drawing.Color.White;
@@ -182,12 +174,13 @@
             // 
             // Log_Panel
             // 
+            resources.ApplyResources(this.Log_Panel, "Log_Panel");
             this.Log_Panel.Controls.Add(this.label4);
             this.Log_Panel.Controls.Add(this.L_Date_0);
             this.Log_Panel.Controls.Add(this.L_Label_0);
             this.Log_Panel.Controls.Add(this.L_Text_0);
-            resources.ApplyResources(this.Log_Panel, "Log_Panel");
             this.Log_Panel.Name = "Log_Panel";
+            this.Log_Panel.Click += new System.EventHandler(this.L_Text_Leave);
             // 
             // label4
             // 
@@ -201,7 +194,6 @@
             this.Controls.Add(this.Log_Panel);
             this.Controls.Add(this.Comp_Panel);
             this.Controls.Add(this.corp_name);
-            this.Controls.Add(this.Record_Sorting);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.User_Note);
             this.Controls.Add(this.label1);
@@ -215,6 +207,7 @@
             this.MaximizeBox = false;
             this.Name = "Main_Form";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Click += new System.EventHandler(this.L_Text_Leave);
             this.group_status.ResumeLayout(false);
             this.group_status.PerformLayout();
             this.Comp_Panel.ResumeLayout(false);
@@ -243,7 +236,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox User_Note;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button Record_Sorting;
         private System.Windows.Forms.Panel Comp_Panel;
         private System.Windows.Forms.Label Item_0;
         private System.Windows.Forms.Panel Log_Panel;

@@ -46,9 +46,10 @@ namespace Graduate_App
                 Environment.Exit(0);
             }
         }
-        public string[] Load_LINE(List<string> CSV_RECORD, int LINE_NO)
+        public List<string> Load_LINE(List<string> CSV_RECORD, int LINE_NO)
         {
-            return CSV_RECORD[LINE_NO].Split(',');
+            List<string> return_List = new List<string>(CSV_RECORD[LINE_NO].Split(','));
+            return return_List;
         }
         public bool Save_ALL(List<string> CSV_RECORD, bool Initial_Start)
         {
